@@ -1,0 +1,7 @@
+.feature-car {
+    background: url('../Assets/feature-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+}
