@@ -1,7 +1,8 @@
 .feature-car {
-    background: url('../Assets/feature-bg.jpg');
+    background: rgba(0, 0, 0, 0.7) url('../Assets/feature-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 500px;
+    background-blend-mode: darken;
+    height: 700px;
 }

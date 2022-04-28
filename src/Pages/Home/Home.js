@@ -16,7 +16,7 @@ const Home = () => {
                 <p className="text-4xl text-gray-900 font-[600]">Arrives new car everyday</p>
             </div>
 
-            <div className="text-center my-16">
+            <div className="text-center mt-16">
                 <p className="text-gray-500">Welcome to our website</p>
                 <p className="text-3xl text-gray-900 font-semibold uppercase">nextgen Automobiles</p>
                 <hr className="block mx-auto mt-1 h-[1px] w-32 bg-red-600 border-none" />
@@ -68,7 +68,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 mt-10 mb-20">
+            <div className="grid grid-cols-3 mb-10">
                 <img className="hover:-translate-x-3 hover:ease-in-out duration-500" src={car2} alt="" />
                 <div className="flex flex-col justify-center items-center">
                     <img className="rounded-full" src={assistant} alt="" />
@@ -76,6 +76,11 @@ const Home = () => {
                     <p className="text-3xl text-red-600 font-[600] mt-4">+880 189 0022 5588</p>
                 </div>
                 <img className="hover:translate-x-3 hover:ease-in-out duration-500" src={car1} alt="" />
+            </div>
+
+            <div className="feature-car mb-10">
+                <p className="text-white text-center pt-24">Check out our recent cars</p>
+                <p className="text-4xl text-white text-center font-[600] uppercase">Feature Car</p>
             </div>
         </section>
     )
