@@ -20,12 +20,12 @@ const Header = () => {
                     </NavLink>
                 </li>
                 <li className="cursor-pointer">
-                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
+                    <NavLink to="/cars" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
                         Cars
                     </NavLink>
                 </li>
                 <li className="cursor-pointer">
-                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
+                    <NavLink to="/about" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
                         About
                     </NavLink>
                 </li>

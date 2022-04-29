@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const CarDetails = ({ car }) => {
     const { name, image, price, quantity, description, supplier, _id } = car
+
     return (
         <div className="mx-auto" style={{ width: '300px' }}>
             <img style={{ width: '100%', height: '200px' }} src={image} alt="" />

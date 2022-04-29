@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import githubLogo from '../../../Assets/logos/github.png'
 import googleLogo from '../../../Assets/logos/google.png'
 import { auth } from '../../../Firebase/firebase.init'
@@ -9,9 +9,12 @@ const SocialLogin = () => {
     const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth)
     const [signInWithGithub, gitUser] = useSignInWithGithub(auth)
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
 
     if (googleUser || gitUser) {
-        navigate('/')
+        navigate(from, { replace: true })
     }
 
     return (
