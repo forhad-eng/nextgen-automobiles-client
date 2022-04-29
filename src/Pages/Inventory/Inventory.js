@@ -1,6 +1,8 @@
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../../Styles/Inventory.css'
 
 const Inventory = () => {
@@ -69,8 +71,8 @@ const Inventory = () => {
                 </button>
             </div>
 
-            <div className="w-1/2 mx-auto mt-8">
-                <form onSubmit={reStockHandle} className="restock px-4 pb-5">
+            <div className="mt-6 flex justify-between pl-64">
+                <form onSubmit={reStockHandle} className="restock w-7/12 px-4 pb-5">
                     <p className="text-3xl text-center py-5">Restock the item</p>
                     <input
                         className="inventory-input block w-4/5 mx-auto py-2 pl-3 rounded-full outline-none"
@@ -84,6 +86,15 @@ const Inventory = () => {
                         value="Restock"
                     />
                 </form>
+
+                <div className="mt-40">
+                    <Link className="bg-red-600 text-white rounded px-2 py-3" to="/">
+                        <button>
+                            Manage Inventories
+                            <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     )
