@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import '../../Styles/Inventory.css'
 
 const Inventory = () => {
     const { id } = useParams()
@@ -29,6 +30,22 @@ const Inventory = () => {
         }
     }
 
+    const reStockHandle = async e => {
+        e.preventDefault()
+        const proceed = window.confirm('Are you sure you want to Restock?')
+        if (proceed) {
+            let { name, image, price, quantity, description, supplier } = car
+            quantity = e.target.quantity.value
+            const updatedCar = { id: id, name, image, price, quantity, description, supplier }
+            const url = `http://localhost:5000/car/${id}`
+            const { data } = await axios.put(url, updatedCar)
+            if (data.acknowledged) {
+                setCar(updatedCar)
+                e.target.reset()
+            }
+        }
+    }
+
     return (
         <div className="pt-24 px-20">
             <div className="grid grid-cols-3 gap-10 p-4 shadow rounded-lg text-gray-500 leading-8">
@@ -50,6 +67,23 @@ const Inventory = () => {
                 >
                     Delivered
                 </button>
+            </div>
+
+            <div className="w-1/2 mx-auto mt-8">
+                <form onSubmit={reStockHandle} className="restock px-4 pb-5">
+                    <p className="text-3xl text-center py-5">Restock the item</p>
+                    <input
+                        className="inventory-input block w-4/5 mx-auto py-2 pl-3 rounded-full outline-none"
+                        type="text"
+                        name="quantity"
+                        placeholder="Enter quantity"
+                    />
+                    <input
+                        className="block w-1/2 mx-auto mt-5 bg-red-600 text-white rounded px-2 py-3"
+                        type="submit"
+                        value="Restock"
+                    />
+                </form>
             </div>
         </div>
     )
