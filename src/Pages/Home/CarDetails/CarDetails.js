@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const CarDetails = ({ car }) => {
     const { name, image, price, quantity, description, supplier } = car
@@ -10,12 +11,17 @@ const CarDetails = ({ car }) => {
                 <p className="text-gray-800 font-[600] mb-1">${price}</p>
                 <hr className="block mx-auto h-[1px] w-14 bg-red-600 border-none" />
                 <hr className="block mx-auto my-1 h-[1px] w-10 bg-red-600 border-none" />
-                <div className="text-gray-600 text-left pb-5 pl-2">
+                <div className="text-gray-600 text-left pb-2 px-2">
                     <p className="">{description}</p>
                     <p className="">Supplier: {supplier}</p>
-                    <p className="">
-                        in-stock: <span className="text-orange-500">{quantity}</span>
-                    </p>
+                    <div className="flex justify-between py-2">
+                        <p>
+                            In-Stock: <span className="text-orange-500">{quantity}</span>{' '}
+                        </p>
+                        <Link to="/">
+                            <button className="bg-red-600 text-white rounded px-2 py-1">Stock Update</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

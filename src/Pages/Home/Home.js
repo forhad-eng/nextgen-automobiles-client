@@ -81,7 +81,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 mb-10">
+            <div className="grid grid-cols-3 my-14">
                 <img className="hover:-translate-x-3 hover:ease-in-out duration-500" src={car2} alt="" />
                 <div className="flex flex-col justify-center items-center">
                     <img className="rounded-full" src={assistant} alt="" />
