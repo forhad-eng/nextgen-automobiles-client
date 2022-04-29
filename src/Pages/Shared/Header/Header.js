@@ -8,22 +8,22 @@ const Header = () => {
             <img style={{ height: '60px' }} src={logo} alt="Automobiles" />
             <ul className="flex gap-6 text-lg">
                 <li className="cursor-pointer">
-                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-red-700' : 'text-blue-700')}>
+                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-gray-900' : 'text-blue-700')}>
                         Home
                     </NavLink>
                 </li>
                 <li className="cursor-pointer">
-                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-red-700' : 'text-blue-700')}>
+                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-gray-900' : 'text-blue-700')}>
                         Cars
                     </NavLink>
                 </li>
                 <li className="cursor-pointer">
-                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-red-700' : 'text-blue-700')}>
+                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-gray-900' : 'text-blue-700')}>
                         About
                     </NavLink>
                 </li>
                 <li className="cursor-pointer">
-                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-red-700' : 'text-blue-700')}>
+                    <NavLink to="/" className={({ isActive }) => (isActive ? 'text-gray-900' : 'text-blue-700')}>
                         Login
                     </NavLink>
                 </li>

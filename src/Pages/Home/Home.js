@@ -1,13 +1,26 @@
 import { faCar, faCarBurst, faDollar, faHeadset } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import banner1 from '../../Assets/banner1.jpg'
 import car1 from '../../Assets/car1.png'
 import car2 from '../../Assets/car2.png'
 import assistant from '../../Assets/help-center.jpg'
 import '../../Styles/Home.css'
+import CarDetails from './CarDetails/CarDetails'
 
 const Home = () => {
+    const [cars, setCars] = useState([])
+
+    useEffect(() => {
+        const getCarInventory = async () => {
+            const url = 'http://localhost:5000/car'
+            const { data } = await axios.get(url)
+            setCars(data)
+        }
+        getCarInventory()
+    }, [])
+
     return (
         <section>
             <img className="h-screen w-full" src={banner1} alt="" />
@@ -22,7 +35,7 @@ const Home = () => {
                 <hr className="block mx-auto mt-1 h-[1px] w-32 bg-red-600 border-none" />
                 <hr className="block mx-auto mt-2 h-[1px] w-28 bg-red-600 border-none" />
 
-                <p className="mt-5 px-52 text-gray-500">
+                <p className="mt-10 px-52 text-gray-500">
                     NEXTGEN AUTOMOBILES is offering you a variety of car collections. Here you can find your most
                     endearing car in a affordable price. We are also providing 5years of servicing for free of cost.
                     There are always concession on vehicle parts if you buy a car from us. Having business with 50+
@@ -79,8 +92,14 @@ const Home = () => {
             </div>
 
             <div className="feature-car mb-10">
-                <p className="text-white text-center pt-24">Check out our recent cars</p>
-                <p className="text-4xl text-white text-center font-[600] uppercase">Feature Car</p>
+                <p className="text-white text-center pt-12">Our car</p>
+                <p className="text-4xl text-white text-center font-[600] uppercase">inventory</p>
+
+                <div className="text-white grid lg:grid-cols-3 gap-10 mt-10 px-20">
+                    {cars.slice(0, 6).map(car => (
+                        <CarDetails car={car} />
+                    ))}
+                </div>
             </div>
         </section>
     )
