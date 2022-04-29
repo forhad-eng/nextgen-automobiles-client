@@ -1,7 +1,8 @@
-import { faCar, faCarBurst, faDollar, faHeadset } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faCar, faCarBurst, faDollar, faHeadset } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import banner1 from '../../Assets/banner1.jpg'
 import car1 from '../../Assets/car1.png'
 import car2 from '../../Assets/car2.png'
@@ -99,6 +100,15 @@ const Home = () => {
                     {cars.slice(0, 6).map(car => (
                         <CarDetails car={car} />
                     ))}
+                </div>
+
+                <div className="py-10">
+                    <Link className="block w-fit ml-auto mr-5 px-2 py-3 bg-red-600 text-white rounded" to="/">
+                        <button>
+                            Manage Inventories
+                            <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
+                        </button>
+                    </Link>
                 </div>
             </div>
         </section>

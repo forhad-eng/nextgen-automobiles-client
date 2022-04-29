@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import '../../Styles/Inventory.css'
 
 const Inventory = () => {
@@ -38,6 +39,9 @@ const Inventory = () => {
         if (proceed) {
             let { name, image, price, quantity, description, supplier } = car
             quantity = e.target.quantity.value
+            if (!quantity) {
+                return toast.error('Please enter a number')
+            }
             const updatedCar = { id: id, name, image, price, quantity, description, supplier }
             const url = `http://localhost:5000/car/${id}`
             const { data } = await axios.put(url, updatedCar)
