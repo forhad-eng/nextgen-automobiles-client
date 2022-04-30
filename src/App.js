@@ -6,6 +6,7 @@ import Inventory from './Pages/Inventory/Inventory'
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth'
 import SignIn from './Pages/Login/SignIn/SignIn'
 import SignUp from './Pages/Login/SignUp/SignUp'
+import ManageInventory from './Pages/ManageInventory/ManageInventory'
 import Header from './Pages/Shared/Header/Header'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                         </RequireAuth>
                     }
                 />
+                <Route path="/manage" element={<ManageInventory />} />
             </Routes>
             <ToastContainer />
         </div>

@@ -1,26 +1,17 @@
 import { faArrowRight, faCar, faCarBurst, faDollar, faHeadset } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import banner1 from '../../Assets/banner1.jpg'
 import car1 from '../../Assets/car1.png'
 import car2 from '../../Assets/car2.png'
 import assistant from '../../Assets/help-center.jpg'
+import useInventory from '../../hooks/useInventory'
 import '../../Styles/Home.css'
 import CarDetails from './CarDetails/CarDetails'
 
 const Home = () => {
-    const [cars, setCars] = useState([])
-
-    useEffect(() => {
-        const getCarInventory = async () => {
-            const url = 'http://localhost:5000/car'
-            const { data } = await axios.get(url)
-            setCars(data)
-        }
-        getCarInventory()
-    }, [])
+    const [cars] = useInventory()
 
     return (
         <section>
@@ -103,7 +94,7 @@ const Home = () => {
                 </div>
 
                 <div className="py-10">
-                    <Link className="block w-fit ml-auto mr-5 px-2 py-3 bg-red-600 text-white rounded" to="/">
+                    <Link to="/manage" className="block w-fit ml-auto mr-5 px-2 py-3 bg-red-600 text-white rounded">
                         <button>
                             Manage Inventories
                             <FontAwesomeIcon icon={faArrowRight} className="ml-1" />

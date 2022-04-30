@@ -1,0 +1,21 @@
+.inventory-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding-top: 80px;
+}
+.inventory-nav {
+    background-color: #e5e5e5;
+    height: 100vh;
+    padding: 40px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 16px;
+}

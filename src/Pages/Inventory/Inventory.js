@@ -92,7 +92,7 @@ const Inventory = () => {
                 </form>
 
                 <div className="mt-40">
-                    <Link className="bg-red-600 text-white rounded px-2 py-3" to="/">
+                    <Link className="bg-red-600 text-white rounded px-2 py-3" to="/manage">
                         <button>
                             Manage Inventories
                             <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
