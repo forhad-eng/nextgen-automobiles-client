@@ -1,63 +1,29 @@
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBarsProgress, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import useInventory from '../../hooks/useInventory'
-import '../../Styles/ManageInventory.css'
+import { NavLink, Outlet } from 'react-router-dom'
 
 const ManageInventory = () => {
-    const [cars] = useInventory()
-
     return (
         <div className="inventory-container">
-            <div className="inventory-nav">
+            <div className="inventory-nav bg-blue-200 leading-9">
                 <NavLink
-                    to="/manage"
-                    className={({ isActive }) => (isActive ? 'text-blue-600 text-xl block' : 'text-xl block')}
+                    to="manageItem"
+                    className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
                 >
+                    <FontAwesomeIcon icon={faBarsProgress} className="mr-2" />
                     Manage Inventory
                 </NavLink>
                 <NavLink
-                    to="/add"
-                    className={`text-xl ${({ isActive }) =>
-                        isActive ? 'text-blue-600 text-xl block' : 'text-xl block'}`}
+                    to="addItem"
+                    className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
                 >
+                    <FontAwesomeIcon icon={faPlus} className="mr-2" />
                     Add New Item
                 </NavLink>
             </div>
-            <div className="inventory-items">
-                <div>
-                    <table>
-                        <thead>
-                            <tr className="bg-blue-700 text-white">
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Quantity</td>
-                                <td>Description</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cars.map(car => {
-                                const { name, price, quantity, description } = car
-                                return (
-                                    <tr className="bg-white">
-                                        <td>{name}</td>
-                                        <td>{price}</td>
-                                        <td>{quantity}</td>
-                                        <td>{description}</td>
-                                        <button className="inline-block ">
-                                            <FontAwesomeIcon
-                                                icon={faTrashAlt}
-                                                className="h-5 w-5 ml-4 mt-2 p-3 rounded-full bg-red-300 text-red-600"
-                                            />
-                                        </button>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                </div>
+            <div className="inventory-items drop-shadow">
+                <Outlet />
             </div>
         </div>
     )

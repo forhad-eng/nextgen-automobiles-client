@@ -1,0 +1,22 @@
+.addNew {
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+    width: 60%;
+    margin: 80px auto;
+    padding: 20px;
+}
+.addNew div {
+    width: 80%;
+    margin: 0 auto;
+}
+.addNew input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.addNew input:last-child {
+    margin-top: 20px;
+}
