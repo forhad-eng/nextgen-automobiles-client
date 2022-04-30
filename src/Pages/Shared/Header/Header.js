@@ -1,14 +1,20 @@
 import { signOut } from 'firebase/auth'
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../../../Assets/logos/logo.png'
 import { auth } from '../../../Firebase/firebase.init'
 
 const Header = () => {
     const [user] = useAuthState(auth)
     const location = useLocation()
+    const navigate = useNavigate()
     const path = location.pathname
+
+    const singOutHandle = () => {
+        signOut(auth)
+        navigate('/')
+    }
 
     return (
         <nav
@@ -25,20 +31,51 @@ const Header = () => {
                         Home
                     </NavLink>
                 </li>
-                <li className="cursor-pointer">
-                    <NavLink to="/all-cars" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
-                        Cars In Stock
-                    </NavLink>
-                </li>
-                <li className="cursor-pointer">
-                    <NavLink to="/my-items" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
-                        My Items
-                    </NavLink>
-                </li>
+                {user ? (
+                    ''
+                ) : (
+                    <li className="cursor-pointer">
+                        <NavLink to="/blog" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
+                            Blog
+                        </NavLink>
+                    </li>
+                )}
+                {user ? (
+                    ''
+                ) : (
+                    <li className="cursor-pointer">
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                        >
+                            About
+                        </NavLink>
+                    </li>
+                )}
+                {user && (
+                    <li className="cursor-pointer">
+                        <NavLink
+                            to="/all-cars"
+                            className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                        >
+                            Cars In Stock
+                        </NavLink>
+                    </li>
+                )}
+                {user && (
+                    <li className="cursor-pointer">
+                        <NavLink
+                            to="/my-items"
+                            className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                        >
+                            My Items
+                        </NavLink>
+                    </li>
+                )}
                 <li className="cursor-pointer">
                     {user ? (
                         <button
-                            onClick={() => signOut(auth)}
+                            onClick={singOutHandle}
                             className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
                         >
                             Sign out

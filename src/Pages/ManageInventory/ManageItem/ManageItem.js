@@ -23,38 +23,36 @@ const ManageItem = () => {
     }
 
     return (
-        <div>
-            <table>
-                <thead>
-                    <tr className="bg-blue-700 text-white">
-                        <td>Name</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Description</td>
-                        <td>Action</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {cars.map(car => {
-                        const { name, price, quantity, description, _id } = car
-                        return (
-                            <tr key={_id} className="bg-white">
-                                <td>{name}</td>
-                                <td>{price}</td>
-                                <td>{quantity}</td>
-                                <td>{description}</td>
-                                <button onClick={() => inventoryDeleteHandle(_id)}>
-                                    <FontAwesomeIcon
-                                        icon={faTrashAlt}
-                                        className="h-5 w-5 ml-4 mt-2 p-3 rounded-full bg-red-300 text-red-600"
-                                    />
-                                </button>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+                <tr className="bg-blue-700 text-white">
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Description</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {cars.map(car => {
+                    const { name, price, quantity, description, _id } = car
+                    return (
+                        <tr key={_id} className="bg-white">
+                            <td>{name}</td>
+                            <td>{price}</td>
+                            <td>{quantity}</td>
+                            <td>{description}</td>
+                            <button onClick={() => inventoryDeleteHandle(_id)}>
+                                <FontAwesomeIcon
+                                    icon={faTrashAlt}
+                                    className="h-5 w-5 ml-4 mt-2 p-3 rounded-full bg-red-200 text-red-600"
+                                />
+                            </button>
+                        </tr>
+                    )
+                })}
+            </tbody>
+        </table>
     )
 }
 
