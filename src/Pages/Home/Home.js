@@ -1,4 +1,13 @@
-import { faArrowRight, faCar, faCarBurst, faDollar, faHeadset } from '@fortawesome/free-solid-svg-icons'
+import {
+    faArrowRight,
+    faCar,
+    faCarBurst,
+    faComments,
+    faDollar,
+    faHeadset,
+    faTrophy,
+    faUser
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -8,6 +17,7 @@ import car2 from '../../Assets/car2.png'
 import assistant from '../../Assets/help-center.jpg'
 import useInventory from '../../hooks/useInventory'
 import '../../Styles/Home.css'
+import Counter from '../Shared/Counter/Counter'
 import CarDetails from './CarDetails/CarDetails'
 
 const Home = () => {
@@ -104,6 +114,36 @@ const Home = () => {
                             <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
                         </button>
                     </Link>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-4 gap-10 my-24 px-24 text-center">
+                <div>
+                    <FontAwesomeIcon icon={faCar} className="w-6 h-6 text-[#ff0000] bg-gray-100 rounded-full p-3" />
+                    <p className="uppercase text-md font-[600] mt-2">vehicles in stock</p>
+                    <hr className="block mx-auto mt-2 h-[2px] w-6 bg-red-600 border-none" />
+                    <Counter end="150" />
+                </div>
+                <div>
+                    <FontAwesomeIcon
+                        icon={faComments}
+                        className="w-6 h-6 text-[#ff0000] bg-gray-100 rounded-full p-3"
+                    />
+                    <p className="uppercase text-md font-[600] mt-2">Dealer Reviews</p>
+                    <hr className="block mx-auto mt-2 h-[2px] w-6 bg-red-600 border-none" />
+                    <Counter end="380" />
+                </div>
+                <div>
+                    <FontAwesomeIcon icon={faUser} className="w-6 h-6 text-[#ff0000] bg-gray-100 rounded-full p-3" />
+                    <p className="uppercase text-md font-[600] mt-2">Happy Customers</p>
+                    <hr className="block mx-auto mt-2 h-[2px] w-6 bg-red-600 border-none" />
+                    <Counter end="1150" />
+                </div>
+                <div>
+                    <FontAwesomeIcon icon={faTrophy} className="w-6 h-6 text-[#ff0000] bg-gray-100 rounded-full p-3" />
+                    <p className="uppercase text-md font-[600] mt-2">Awards</p>
+                    <hr className="block mx-auto mt-2 h-[2px] w-6 bg-red-600 border-none" />
+                    <Counter end="15" />
                 </div>
             </div>
         </section>
