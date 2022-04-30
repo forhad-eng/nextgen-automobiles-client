@@ -1,5 +1,7 @@
+import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import '../../../Styles/AddNewItem.css'
 
 const AddNewItem = () => {
@@ -8,13 +10,20 @@ const AddNewItem = () => {
         handleSubmit,
         formState: { errors }
     } = useForm()
-    const onSubmit = (data, e) => {
+
+    const onSubmit = async (newItem, e) => {
+        const url = 'http://localhost:5000/car'
+        const { data } = await axios.post(url, newItem)
+        if (data.acknowledged) {
+            toast.success('Item added')
+        }
         e.target.reset()
     }
 
     return (
         <form className="addNew" onSubmit={handleSubmit(onSubmit)}>
             <div>
+                <p className="text-2xl text-center text-gray-900">Add Item</p>
                 <input
                     className="border-b-[1px]"
                     placeholder="Item name"
@@ -44,7 +53,7 @@ const AddNewItem = () => {
                 {errors.supplier && <p className="text-red-500">Supplier name is required</p>}
                 <input className="border-b-[1px]" placeholder="Image url" {...register('image', { required: true })} />
                 {errors.image && <p className="text-red-500">Image url is required</p>}
-                <input type="submit" value="Add Item" className="bg-red-600 text-white rounded px-2 py-1" />
+                <input type="submit" value="Add" className="bg-red-600 text-white rounded px-2 py-1" />
             </div>
         </form>
     )
