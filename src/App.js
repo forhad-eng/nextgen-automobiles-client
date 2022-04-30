@@ -11,6 +11,7 @@ import SignUp from './Pages/Login/SignUp/SignUp'
 import AddInventory from './Pages/ManageInventory/AddInventory/AddInventory'
 import ManageInventory from './Pages/ManageInventory/ManageInventory'
 import ManageItem from './Pages/ManageInventory/ManageItem/ManageItem'
+import Footer from './Pages/Shared/Footer/Footer'
 import Header from './Pages/Shared/Header/Header'
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
                     <Route path="addItem" element={<AddInventory />} />
                 </Route>
             </Routes>
+            <Footer/>
             <ToastContainer />
         </div>
     )

@@ -83,7 +83,7 @@ const Home = () => {
                 <img className="hover:translate-x-3 hover:ease-in-out duration-500" src={car1} alt="" />
             </div>
 
-            <div className="feature-car mb-10">
+            <div className="feature-car">
                 <p className="text-white text-center pt-12">Our car</p>
                 <p className="text-4xl text-white text-center font-[600] uppercase">inventory</p>
 
