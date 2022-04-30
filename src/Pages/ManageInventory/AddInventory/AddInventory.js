@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import '../../../Styles/AddNewItem.css'
 
-const AddNewItem = () => {
+const AddInventory = () => {
     const {
         register,
         handleSubmit,
@@ -59,4 +59,4 @@ const AddNewItem = () => {
     )
 }
 
-export default AddNewItem
+export default AddInventory

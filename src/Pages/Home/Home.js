@@ -89,7 +89,11 @@ const Home = () => {
 
                 <div className="text-white grid lg:grid-cols-3 gap-10 mt-10 px-20">
                     {cars.slice(0, 6).map(car => (
-                        <CarDetails car={car} />
+                        <CarDetails car={car}>
+                            <Link to={`/inventory/${car._id}`}>
+                                <button className="bg-red-600 text-white rounded px-2 py-1">Stock Update</button>
+                            </Link>
+                        </CarDetails>
                     ))}
                 </div>
 

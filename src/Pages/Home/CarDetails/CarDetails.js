@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-const CarDetails = ({ car }) => {
-    const { name, image, price, quantity, description, supplier, _id } = car
+const CarDetails = ({ car, children }) => {
+    const { name, image, price, quantity, description, supplier } = car
 
     return (
         <div className="mx-auto" style={{ width: '300px' }}>
@@ -19,9 +18,7 @@ const CarDetails = ({ car }) => {
                         <p>
                             In-Stock: <span className="text-orange-500">{quantity}</span>{' '}
                         </p>
-                        <Link to={`/inventory/${_id}`}>
-                            <button className="bg-red-600 text-white rounded px-2 py-1">Stock Update</button>
-                        </Link>
+                        {children}
                     </div>
                 </div>
             </div>

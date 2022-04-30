@@ -1,23 +1,15 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import useCar from '../../hooks/useCar'
 import '../../Styles/Inventory.css'
 
 const Inventory = () => {
     const { id } = useParams()
-    const [car, setCar] = useState({})
-
-    useEffect(() => {
-        const getSelectedCar = async () => {
-            const url = `http://localhost:5000/car/${id}`
-            const { data } = await axios.get(url)
-            setCar(data)
-        }
-        getSelectedCar()
-    }, [])
+    const [car, setCar] = useCar(id)
 
     const deliveredHandle = async () => {
         const proceed = window.confirm('Are you sure you want to deliver?')
