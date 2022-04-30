@@ -35,8 +35,11 @@ const Header = () => {
                     ''
                 ) : (
                     <li className="cursor-pointer">
-                        <NavLink to="/blog" className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}>
-                            Blog
+                        <NavLink
+                            to="/blogs"
+                            className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                        >
+                            Blogs
                         </NavLink>
                     </li>
                 )}

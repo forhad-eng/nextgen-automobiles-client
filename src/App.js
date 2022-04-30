@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Blogs from './Pages/Home/Blogs/Blogs'
 import CarsInStock from './Pages/Home/CarsInStock/CarsInStock'
 import Home from './Pages/Home/Home'
 import MyItems from './Pages/Home/MyItems/MyItems'
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/my-items" element={<MyItems />} />
                 <Route path="/login" element={<SignIn />} />
                 <Route path="/register" element={<SignUp />} />
+                <Route path='/blogs' element={<Blogs/>} />
                 <Route
                     path="/inventory/:id"
                     element={
