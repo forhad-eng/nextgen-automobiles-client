@@ -12,7 +12,7 @@ const AddInventory = () => {
     } = useForm()
 
     const onSubmit = async (newItem, e) => {
-        const url = 'http://localhost:5000/car'
+        const url = 'https://fierce-escarpment-98797.herokuapp.com/car'
         const { data } = await axios.post(url, newItem)
         if (data.acknowledged) {
             toast.success('Item added')

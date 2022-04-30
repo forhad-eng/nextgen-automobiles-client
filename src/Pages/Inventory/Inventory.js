@@ -17,7 +17,7 @@ const Inventory = () => {
             let { _id, quantity, ...rest } = car
             quantity -= 1
             const updatedCar = { ...rest, quantity }
-            const url = `http://localhost:5000/car/${id}`
+            const url = `https://fierce-escarpment-98797.herokuapp.com/car/${id}`
             const { data } = await axios.put(url, updatedCar)
             if (data.acknowledged) {
                 setCar(updatedCar)
@@ -35,7 +35,7 @@ const Inventory = () => {
                 return toast.error('Please enter a number')
             }
             const updatedCar = { ...rest, quantity }
-            const url = `http://localhost:5000/car/${id}`
+            const url = `https://fierce-escarpment-98797.herokuapp.com/car/${id}`
             const { data } = await axios.put(url, updatedCar)
             if (data.acknowledged) {
                 setCar(updatedCar)

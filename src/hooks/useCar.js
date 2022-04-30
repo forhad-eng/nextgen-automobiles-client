@@ -6,7 +6,7 @@ const useCar = id => {
 
     useEffect(() => {
         const getSelectedCar = async () => {
-            const url = `http://localhost:5000/car/${id}`
+            const url = `https://fierce-escarpment-98797.herokuapp.com/car/${id}`
             const { data } = await axios.get(url)
             setCar(data)
         }

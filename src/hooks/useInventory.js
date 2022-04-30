@@ -6,7 +6,7 @@ const useInventory = () => {
 
     useEffect(() => {
         const getCarInventory = async () => {
-            const url = 'http://localhost:5000/car'
+            const url = 'https://fierce-escarpment-98797.herokuapp.com/car'
             const { data } = await axios.get(url)
             setCars(data)
         }

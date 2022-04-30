@@ -15,7 +15,7 @@ const MyItems = () => {
         const email = user?.email
         if (email) {
             const getItems = async () => {
-                const url = `http://localhost:5000/sell?email=${email}`
+                const url = `https://fierce-escarpment-98797.herokuapp.com/sell?email=${email}`
                 const { data } = await axios.get(url)
                 setItems(data)
             }
@@ -26,7 +26,7 @@ const MyItems = () => {
     const itemDeleteHandle = async _id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/sell/${_id}`
+            const url = `https://fierce-escarpment-98797.herokuapp.com/sell/${_id}`
             const { data } = await axios.delete(url)
             if (data.acknowledged) {
                 const remainingItems = items.filter(item => item._id !== _id)

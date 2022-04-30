@@ -12,7 +12,7 @@ const ManageItem = () => {
     const inventoryDeleteHandle = async _id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/car/${_id}`
+            const url = `https://fierce-escarpment-98797.herokuapp.com/car/${_id}`
             const { data } = await axios.delete(url)
             if (data.acknowledged) {
                 const remainingCars = cars.filter(car => car._id !== _id)
