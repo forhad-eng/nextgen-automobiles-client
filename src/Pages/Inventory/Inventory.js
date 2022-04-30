@@ -19,13 +19,13 @@ const Inventory = () => {
         getSelectedCar()
     }, [])
 
-    const deliveredHandle = async itemId => {
+    const deliveredHandle = async () => {
         const proceed = window.confirm('Are you sure you want to deliver?')
         if (proceed) {
-            let { name, image, price, quantity, description, supplier } = car
+            let { _id, quantity, ...rest } = car
             quantity -= 1
-            const updatedCar = { id: itemId, name, image, price, quantity, description, supplier }
-            const url = `http://localhost:5000/car/${itemId}`
+            const updatedCar = { ...rest, quantity }
+            const url = `http://localhost:5000/car/${id}`
             const { data } = await axios.put(url, updatedCar)
             if (data.acknowledged) {
                 setCar(updatedCar)
@@ -37,12 +37,12 @@ const Inventory = () => {
         e.preventDefault()
         const proceed = window.confirm('Are you sure you want to Restock?')
         if (proceed) {
-            let { name, image, price, quantity, description, supplier } = car
+            let { _id, quantity, ...rest } = car
             quantity = e.target.quantity.value
             if (!quantity) {
                 return toast.error('Please enter a number')
             }
-            const updatedCar = { id: id, name, image, price, quantity, description, supplier }
+            const updatedCar = { ...rest, quantity }
             const url = `http://localhost:5000/car/${id}`
             const { data } = await axios.put(url, updatedCar)
             if (data.acknowledged) {
@@ -68,7 +68,7 @@ const Inventory = () => {
                     <p>Supplier: {car.supplier}</p>
                 </div>
                 <button
-                    onClick={() => deliveredHandle(id)}
+                    onClick={deliveredHandle}
                     className="w-fit h-fit my-auto mx-auto bg-red-600 text-white rounded px-8 py-2"
                 >
                     Delivered
