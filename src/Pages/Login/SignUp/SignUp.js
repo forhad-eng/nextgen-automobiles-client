@@ -52,9 +52,10 @@ const SignUp = () => {
     }
 
     return (
-        <div className="pt-28 px-20">
-            <div className="grid lg:grid-cols-2 gap-10">
-                <form className="border-[1px] px-10" onSubmit={handleSubmit(onSubmit)}>
+        <div className="pt-28 px-4 lg:px-20">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
+                <img src={signup} style={{ height: '420px', margin: '0 auto' }} alt="" />
+                <form className="border-[1px] px-4 pb-10 md:pb-0 md:px-8 lg:px-10" onSubmit={handleSubmit(onSubmit)}>
                     <p className="text-2xl text-gray-900 font-[600] mt-10">Sign up</p>
                     <p className="text-gray-900">with your information</p>
                     <input
@@ -105,10 +106,11 @@ const SignUp = () => {
                         </p>
                     </Link>
                 </form>
-                <img src={signup} style={{ height: '420px', margin: '0 auto' }} alt="" />
             </div>
 
-            <SocialLogin />
+            <div className="flex justify-center md:justify-end">
+                <SocialLogin />
+            </div>
         </div>
     )
 }

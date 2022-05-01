@@ -18,8 +18,8 @@ const SocialLogin = () => {
     }
 
     return (
-        <div className="w-1/2 mt-2 mb-5">
-            <div className="flex items-center my-1 pl-14 pr-20">
+        <div className="md:w-1/2 mt-2 mb-5">
+            <div className="flex items-center my-1 md:pl-14 md:pr-12 lg:pr-16">
                 <hr className="w-1/2" />
                 <p className="mx-3">Or</p>
                 <hr className="w-1/2" />
@@ -27,17 +27,17 @@ const SocialLogin = () => {
 
             <button
                 onClick={() => signInWithGoogle()}
-                className="w-2/3 mx-auto py-1 flex items-center drop-shadow-xl border-[1px] rounded-full"
+                className="md:w-2/3 mx-auto py-1 flex items-center drop-shadow-xl border-[1px] rounded-full"
             >
                 <img className="ml-1" style={{ height: '32px' }} src={googleLogo} alt="" />
-                <p className="ml-20">Continue with Google</p>
+                <p className="text-center px-5 lg:px-20">Continue with Google</p>
             </button>
             <button
                 onClick={() => signInWithGithub()}
-                className="w-2/3 mx-auto mt-2 py-1 flex items-center drop-shadow-xl border-[1px] rounded-full"
+                className="md:w-2/3 mx-auto mt-2 py-1 flex items-center drop-shadow-xl border-[1px] rounded-full"
             >
                 <img className="ml-1" style={{ height: '32px' }} src={githubLogo} alt="" />
-                <p className="ml-20">Continue with GitHub</p>
+                <p className="text-center px-5 lg:px-20">Continue with GitHub</p>
             </button>
         </div>
     )
