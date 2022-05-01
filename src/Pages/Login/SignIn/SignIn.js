@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
@@ -32,9 +33,12 @@ const SignIn = () => {
         formState: { errors }
     } = useForm()
 
-    const onSubmit = data => {
-        const { email, pass } = data
-        signInWithEmailAndPassword(email, pass)
+    const onSubmit = async formData => {
+        const { email, pass } = formData
+        await signInWithEmailAndPassword(email, pass)
+        const url = 'https://fierce-escarpment-98797.herokuapp.com/login'
+        const { data } = await axios.post(url, { email })
+        console.log(data.accessToken)
     }
 
     return (

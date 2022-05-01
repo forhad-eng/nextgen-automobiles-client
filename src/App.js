@@ -12,6 +12,7 @@ import SignUp from './Pages/Login/SignUp/SignUp'
 import AddInventory from './Pages/ManageInventory/AddInventory/AddInventory'
 import ManageInventory from './Pages/ManageInventory/ManageInventory'
 import ManageItem from './Pages/ManageInventory/ManageItem/ManageItem'
+import NotFound from './Pages/NotFound/NotFound'
 import Footer from './Pages/Shared/Footer/Footer'
 import Header from './Pages/Shared/Header/Header'
 
@@ -25,7 +26,7 @@ function App() {
                 <Route path="/my-items" element={<MyItems />} />
                 <Route path="/login" element={<SignIn />} />
                 <Route path="/register" element={<SignUp />} />
-                <Route path='/blogs' element={<Blogs/>} />
+                <Route path="/blogs" element={<Blogs />} />
                 <Route
                     path="/inventory/:id"
                     element={
@@ -39,8 +40,9 @@ function App() {
                     <Route path="manageItem" element={<ManageItem />} />
                     <Route path="addItem" element={<AddInventory />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
-            <Footer/>
+            <Footer />
             <ToastContainer />
         </div>
     )

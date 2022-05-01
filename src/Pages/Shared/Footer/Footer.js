@@ -1,14 +1,33 @@
 import { faChevronRight, faEnvelope, faLocationDot, faPhoneFlip } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../../../Assets/logos/logo.png'
 import '../../../Styles/Footer.css'
 
 const Footer = () => {
+    const location = useLocation()
+    const path = location.pathname
+    let displayStatus
+
+    if (
+        path === '/' ||
+        path === '/all-cars' ||
+        path === '/my-items' ||
+        path === '/login' ||
+        path === '/register' ||
+        path === '/blogs' ||
+        path === '/inventory' ||
+        path === '/manage'
+    ) {
+        displayStatus = true
+    } else {
+        displayStatus = false
+    }
+
     return (
-        <footer>
-            <div className="grid lg:grid-cols-4 gap-10 px-12 py-20 text-white">
+        <footer className={`${displayStatus || 'hidden'}`}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 px-12 py-20 text-white">
                 <div>
                     <div className="flex gap-3">
                         <img src={logo} style={{ height: '30px' }} alt="" />
@@ -170,7 +189,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-between gap-5 px-20 py-8 border-t-[1px] border-[#ffffff14] text-[#c4c3c3] text-sm">
+            <div className="flex flex-col md:flex-row justify-between gap-5 px-20 py-8 border-t-[1px] border-[#ffffff14] text-[#c4c3c3] text-sm">
                 <p>&copy;Copyright 2022 NEXTGEN AUTOMOBILES</p>
                 <div className="flex gap-5">
                     <p>Privacy Policy</p>
