@@ -25,10 +25,12 @@ const Home = () => {
 
     return (
         <section>
-            <img className="h-screen w-full" src={banner1} alt="" />
-            <div className="absolute top-56 left-[33%] uppercase">
-                <p className="ml-24 text-xl text-red-600 font-[500]">BMW X3 Sports Activity Vehicle </p>
-                <p className="text-4xl text-gray-900 font-[600]">Arrives new car everyday</p>
+            <img className="lg:h-screen w-full" src={banner1} alt="" />
+            <div className="absolute top-[12%] md:top-56 left-[15%] md:left-[20%] lg:left-[33%] uppercase">
+                <p className="-ml-2 md:ml-20 lg:ml-24 text-lg md:text-xl text-red-600">
+                    BMW X3 Sports Activity Vehicle{' '}
+                </p>
+                <p className="text-xl md:text-4xl text-gray-900 font-[600]">Arrives new car everyday</p>
             </div>
 
             <div className="text-center mt-16">
