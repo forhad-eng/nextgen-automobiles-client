@@ -26,6 +26,7 @@ const Header = () => {
         path === '/login' ||
         path === '/register' ||
         path === '/blogs' ||
+        path === '/about' ||
         path === `/inventory/${id}` ||
         path === '/manage' ||
         path === `/manage/manage-item` ||
@@ -110,18 +111,12 @@ const Header = () => {
                     )}
                     <li className="cursor-pointer">
                         {user ? (
-                            <button
-                                onClick={singOutHandle}
-                                className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
-                            >
+                            <button onClick={singOutHandle} className="bg-[#ff0000] text-white rounded px-3 py-1">
                                 Sign out
                             </button>
                         ) : (
-                            <NavLink
-                                to="/login"
-                                className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
-                            >
-                                Sign in
+                            <NavLink to="/login">
+                                <button className="bg-[#ff0000] text-white rounded px-3 py-1">Sign in</button>
                             </NavLink>
                         )}
                     </li>

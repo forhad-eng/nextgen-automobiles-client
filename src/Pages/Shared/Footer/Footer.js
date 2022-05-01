@@ -20,6 +20,7 @@ const Footer = () => {
         path === '/login' ||
         path === '/register' ||
         path === '/blogs' ||
+        path === '/about' ||
         path === `/inventory/${id}` ||
         path === '/manage' ||
         path === `/manage/manage-item` ||

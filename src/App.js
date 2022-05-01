@@ -2,6 +2,7 @@ import { createContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import AboutUs from './Pages/Home/AboutUs/AboutUs'
 import Blogs from './Pages/Home/Blogs/Blogs'
 import CarsInStock from './Pages/Home/CarsInStock/CarsInStock'
 import Home from './Pages/Home/Home'
@@ -33,6 +34,7 @@ function App() {
                     <Route path="/login" element={<SignIn />} />
                     <Route path="/register" element={<SignUp />} />
                     <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/about" element={<AboutUs/>} />
                     <Route
                         path="/inventory/:id"
                         element={
