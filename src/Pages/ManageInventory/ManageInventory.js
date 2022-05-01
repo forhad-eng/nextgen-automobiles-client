@@ -6,20 +6,20 @@ import { NavLink, Outlet } from 'react-router-dom'
 const ManageInventory = () => {
     return (
         <div className="inventory-container">
-            <div className="inventory-nav bg-blue-200 leading-9">
+            <div className="inventory-nav bg-blue-200 md:leading-9">
                 <NavLink
                     to="manage-item"
-                    className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
+                    className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}
                 >
                     <FontAwesomeIcon icon={faBarsProgress} className="mr-2" />
-                    Manage Inventory
+                    <p className="hidden md:inline-block">Manage Inventory</p>
                 </NavLink>
                 <NavLink
                     to="add-item"
-                    className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
+                    className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}
                 >
                     <FontAwesomeIcon icon={faPlus} className="mr-2" />
-                    Add New Item
+                    <p className="hidden md:inline-block">Add New Item</p>
                 </NavLink>
             </div>
             <div className="inventory-items drop-shadow">

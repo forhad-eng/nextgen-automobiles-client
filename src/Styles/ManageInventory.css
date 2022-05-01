@@ -21,3 +21,41 @@ td {
     text-align: left;
     padding: 16px;
 }
+
+@media screen and (max-width: 420px) {
+    .inventory-container {
+        grid-template-columns: 1fr 10fr;
+        padding-top: 60px;
+    }
+    .inventory-nav {
+        min-height: 100vh;
+        padding: 15px 5px;
+    }
+    .inventory-items {
+        padding: 5px;
+    }
+    th,
+    td {
+        text-align: center;
+        padding: 1px;
+    }
+}
+
+@media screen and (min-width: 421px) and (max-width: 820px) {
+    .inventory-container {
+        grid-template-columns: 2fr 7fr;
+        padding-top: 60px;
+    }
+    .inventory-nav {
+        min-height: 100vh;
+        padding: 15px 5px;
+    }
+    .inventory-items {
+        padding: 10px;
+    }
+    th,
+    td {
+        text-align: center;
+        padding: 1px;
+    }
+}
