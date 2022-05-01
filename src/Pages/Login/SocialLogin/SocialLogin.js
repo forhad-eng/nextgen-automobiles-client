@@ -1,10 +1,12 @@
 import axios from 'axios'
-import React from 'react'
+import React, { createContext } from 'react'
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useLocation, useNavigate } from 'react-router-dom'
 import githubLogo from '../../../Assets/logos/github.png'
 import googleLogo from '../../../Assets/logos/google.png'
 import { auth } from '../../../Firebase/firebase.init'
+
+export const LoadingContext = createContext()
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth)

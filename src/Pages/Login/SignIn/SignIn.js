@@ -6,17 +6,31 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import signin from '../../../Assets/signin.jpg'
 import { auth } from '../../../Firebase/firebase.init'
+import Spinner from '../../Shared/Spinner/Spinner'
 import SocialLogin from '../SocialLogin/SocialLogin'
 
 const SignIn = () => {
-    const [signInWithEmailAndPassword, user, , singInErr] = useSignInWithEmailAndPassword(auth)
+    const [signInWithEmailAndPassword, user, loading, singInErr] = useSignInWithEmailAndPassword(auth)
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
     const location = useLocation()
     const navigate = useNavigate()
 
-    let error = ''
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm()
 
+    let error = ''
     const from = location.state?.from?.pathname || '/'
+
+    if (loading) {
+        return (
+            <div className="h-screen flex items-center">
+                <Spinner />
+            </div>
+        )
+    }
 
     if (user) {
         navigate(from, { replace: true })
@@ -28,12 +42,6 @@ const SignIn = () => {
             toast.error('Wrong password!', { toastId: 'wrongPass' })
         }
     }
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm()
 
     const onSubmit = async formData => {
         const { email, pass } = formData

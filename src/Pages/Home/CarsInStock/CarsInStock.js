@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { toast } from 'react-toastify'
 import { auth } from '../../../Firebase/firebase.init'
 import useInventory from '../../../hooks/useInventory'
+import Spinner from '../../Shared/Spinner/Spinner'
 import CarDetails from '../CarDetails/CarDetails'
 
 const CarsInStock = () => {
@@ -23,15 +24,26 @@ const CarsInStock = () => {
     }
 
     return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10 pt-28 md:px-10 lg:px-20 ">
-            {cars.map(car => (
-                <CarDetails car={car}>
-                    <button onClick={() => buyOneHandle(car)} className="bg-red-600 text-white rounded px-2 py-1">
-                        Add Item
-                    </button>
-                </CarDetails>
-            ))}
-        </div>
+        <>
+            {cars.length === 0 ? (
+                <div className="h-screen flex items-center">
+                    <Spinner />
+                </div>
+            ) : (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10 pt-28 md:px-10 lg:px-20 ">
+                    {cars.map(car => (
+                        <CarDetails car={car}>
+                            <button
+                                onClick={() => buyOneHandle(car)}
+                                className="bg-red-600 text-white rounded px-2 py-1"
+                            >
+                                Add Item
+                            </button>
+                        </CarDetails>
+                    ))}
+                </div>
+            )}
+        </>
     )
 }
 

@@ -3,7 +3,7 @@ const axiosPrivate = axios.create()
 
 axiosPrivate.interceptors.request.use(
     function (config) {
-        if (!config) {
+        if (!config.headers.authorization) {
             config.headers.authorization = `Bearer ${localStorage.getItem('accessToken')}`
         }
         return config

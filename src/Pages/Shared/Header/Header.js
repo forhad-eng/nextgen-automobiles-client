@@ -57,7 +57,7 @@ const Header = () => {
                 </div>
 
                 <ul
-                    className={`md:flex items-center gap-2 md:gap-10 text-lg md:static absolute left-0 transition-all  duration-75 ${
+                    className={`md:flex items-center gap-2 md:gap-5 text-lg md:static absolute left-0 transition-all  duration-75 ${
                         open ? 'top-14 flex flex-col bg-blue-200 w-full p-3 z-10' : '-top-[800px]'
                     }`}
                 >
@@ -66,18 +66,16 @@ const Header = () => {
                             Home
                         </NavLink>
                     </li>
-                    {user ? (
-                        ''
-                    ) : (
-                        <li className="cursor-pointer">
-                            <NavLink
-                                to="/blogs"
-                                className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
-                            >
-                                Blogs
-                            </NavLink>
-                        </li>
-                    )}
+
+                    <li className="cursor-pointer">
+                        <NavLink
+                            to="/blogs"
+                            className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                        >
+                            Blogs
+                        </NavLink>
+                    </li>
+
                     {user ? (
                         ''
                     ) : (

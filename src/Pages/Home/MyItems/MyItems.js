@@ -7,10 +7,12 @@ import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axiosPrivate from '../../../apis/axiosPrivate'
 import { auth } from '../../../Firebase/firebase.init'
+import Spinner from '../../Shared/Spinner/Spinner'
 
 const MyItems = () => {
     const [items, setItems] = useState([])
     const [user] = useAuthState(auth)
+    const [showSpinner, setShowSpinner] = useState(true)
 
     useEffect(() => {
         const email = user?.email
@@ -19,6 +21,7 @@ const MyItems = () => {
                 const url = `https://fierce-escarpment-98797.herokuapp.com/sell?email=${email}`
                 const { data } = await axiosPrivate.get(url)
                 setItems(data)
+                setShowSpinner(!showSpinner)
             }
             getItems()
         }
@@ -56,34 +59,44 @@ const MyItems = () => {
                 </NavLink>
             </div>
             <div className="inventory-items drop-shadow">
-                <table>
-                    <thead>
-                        <tr className="bg-blue-700 text-white">
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Supplier</td>
-                            <td>Action</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {items.map(item => {
-                            const { name, price, supplier, _id } = item
-                            return (
-                                <tr key={_id} className="bg-white">
-                                    <td>{name}</td>
-                                    <td>{price}</td>
-                                    <td>{supplier}</td>
-                                    <button onClick={() => itemDeleteHandle(_id)}>
-                                        <FontAwesomeIcon
-                                            icon={faTrashAlt}
-                                            className="h-5 w-5 ml-4 mt-2 p-3 rounded-full bg-red-200 text-red-600"
-                                        />
-                                    </button>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                {showSpinner ? (
+                    <div className="h-5/6 flex items-center">
+                        <Spinner />
+                    </div>
+                ) : (
+                    <table>
+                        <thead>
+                            <tr className="bg-blue-700 text-white">
+                                <td>Name</td>
+                                <td>Price</td>
+                                <td>Supplier</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.length === 0 && (
+                                <p className="text-3xl text-red-600 absolute left-[40%] top-48">No Item Found!</p>
+                            )}
+
+                            {items.map(item => {
+                                const { name, price, supplier, _id } = item
+                                return (
+                                    <tr key={_id} className="bg-white">
+                                        <td>{name}</td>
+                                        <td>{price}</td>
+                                        <td>{supplier}</td>
+                                        <button onClick={() => itemDeleteHandle(_id)}>
+                                            <FontAwesomeIcon
+                                                icon={faTrashAlt}
+                                                className="h-5 w-5 ml-4 mt-2 p-3 rounded-full bg-red-200 text-red-600"
+                                            />
+                                        </button>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                )}
             </div>
         </div>
     )
