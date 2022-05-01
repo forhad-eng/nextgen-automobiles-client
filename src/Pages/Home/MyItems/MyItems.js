@@ -38,7 +38,7 @@ const MyItems = () => {
 
     return (
         <div className="inventory-container">
-            <div className="inventory-nav bg-blue-200 leading-9">
+            <div className="inventory-nav bg-blue-100 leading-9">
                 <NavLink
                     to="/my-items"
                     className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}

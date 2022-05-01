@@ -6,7 +6,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 const ManageInventory = () => {
     return (
         <div className="inventory-container">
-            <div className="inventory-nav bg-blue-200 md:leading-9">
+            <div className="inventory-nav bg-blue-100 md:leading-9">
                 <NavLink
                     to="manage-item"
                     className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}
