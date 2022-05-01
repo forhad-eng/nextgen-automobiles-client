@@ -87,8 +87,8 @@ const Inventory = () => {
                 </form>
 
                 <div className="mt-14 md:mt-40 ml-auto">
-                    <Link className="bg-red-600 text-white rounded px-2 py-3" to="/manage">
-                        <button>
+                    <Link to="/manage">
+                        <button className="px-3 py-2 bg-blue-500 text-white rounded outline-none">
                             Manage Inventories
                             <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
                         </button>

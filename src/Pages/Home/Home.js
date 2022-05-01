@@ -121,7 +121,10 @@ const Home = () => {
                 </>
 
                 <div className="py-10">
-                    <Link to="/manage" className="block w-fit ml-auto mr-5 px-2 py-3 bg-red-600 text-white rounded">
+                    <Link
+                        to="/manage"
+                        className="block w-fit ml-auto mr-5 px-3 py-2 bg-blue-500 text-white rounded outline-none"
+                    >
                         <button>
                             Manage Inventories
                             <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
