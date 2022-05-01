@@ -33,20 +33,20 @@ const Home = () => {
                 <p className="text-xl md:text-4xl text-gray-900 font-[600]">Arrives new car everyday</p>
             </div>
 
-            <div className="text-center mt-16">
+            <div className="text-center mt-6 md:mt-8 lg:mt-16">
                 <p className="text-gray-500">Welcome to our website</p>
-                <p className="text-3xl text-gray-900 font-semibold uppercase">nextgen Automobiles</p>
+                <p className="text-2xl lg:text-3xl text-gray-900 font-semibold uppercase">nextgen Automobiles</p>
                 <hr className="block mx-auto mt-1 h-[1px] w-32 bg-red-600 border-none" />
                 <hr className="block mx-auto mt-2 h-[1px] w-28 bg-red-600 border-none" />
 
-                <p className="mt-10 px-52 text-gray-500">
+                <p className="mt-4 lg:mt-10 px-4 lg:px-52 text-gray-500">
                     NEXTGEN AUTOMOBILES is offering you a variety of car collections. Here you can find your most
                     endearing car in a affordable price. We are also providing 5years of servicing for free of cost.
                     There are always concession on vehicle parts if you buy a car from us. Having business with 50+
                     years of excellency!
                 </p>
 
-                <div className="grid grid-cols-4 gap-10 px-24 mt-10">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-10 px-24 mt-10">
                     <div>
                         <FontAwesomeIcon icon={faCar} className="w-6 h-6 text-gray-400 bg-gray-100 rounded-full p-3" />
                         <p className="uppercase text-md font-[600] mt-2">All Brands</p>
@@ -85,12 +85,12 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 my-14">
+            <div className="grid grid-cols-3 gap-2 my-14">
                 <img className="hover:-translate-x-3 hover:ease-in-out duration-500" src={car2} alt="" />
                 <div className="flex flex-col justify-center items-center">
                     <img className="rounded-full" src={assistant} alt="" />
-                    <p className="text-gray-500">Have Any Question?</p>
-                    <p className="text-3xl text-red-600 font-[600] mt-4">+880 189 0022 5588</p>
+                    <p className="mt-1 text-sm md:text-lg text-center text-gray-500">Have Any Question?</p>
+                    <p className="text-lg text-center md:text-3xl text-red-600 font-[600] mt-3">+880 189 0022 5588</p>
                 </div>
                 <img className="hover:translate-x-3 hover:ease-in-out duration-500" src={car1} alt="" />
             </div>
@@ -99,7 +99,7 @@ const Home = () => {
                 <p className="text-white text-center pt-12">Our car</p>
                 <p className="text-4xl text-white text-center font-[600] uppercase">inventory</p>
 
-                <div className="text-white grid lg:grid-cols-3 gap-10 mt-10 px-20">
+                <div className="text-white grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 md:px-14 lg:px-20">
                     {cars.slice(0, 6).map(car => (
                         <CarDetails car={car}>
                             <Link to={`/inventory/${car._id}`}>
@@ -119,7 +119,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-10 my-24 px-24 text-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 my-14 md:my-24 md:px-24 text-center">
                 <div>
                     <FontAwesomeIcon icon={faCar} className="w-6 h-6 text-[#ff0000] bg-gray-100 rounded-full p-3" />
                     <p className="uppercase text-md font-[600] mt-2">vehicles in stock</p>

@@ -12,8 +12,8 @@ const CarDetails = ({ car, children }) => {
                 <hr className="block mx-auto h-[1px] w-14 bg-red-600 border-none" />
                 <hr className="block mx-auto my-1 h-[1px] w-10 bg-red-600 border-none" />
                 <div className="text-gray-600 text-left pb-2 px-2">
-                    <p className="">{description}</p>
-                    <p className="">Supplier: {supplier}</p>
+                    <p>{description}</p>
+                    <p>Supplier: {supplier}</p>
                     <div className="flex justify-between py-2">
                         <p>
                             In-Stock: <span className="text-orange-500">{quantity}</span>{' '}
