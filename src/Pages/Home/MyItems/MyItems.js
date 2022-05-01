@@ -41,17 +41,17 @@ const MyItems = () => {
             <div className="inventory-nav bg-blue-200 leading-9">
                 <NavLink
                     to="/my-items"
-                    className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
+                    className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}
                 >
                     <FontAwesomeIcon icon={faBarsProgress} className="mr-2" />
-                    Manage My Items
+                    <p className="hidden md:inline-block">Manage My Items</p>
                 </NavLink>
                 <NavLink
                     to="/all-cars"
-                    className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
+                    className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}
                 >
                     <FontAwesomeIcon icon={faPlus} className="mr-2" />
-                    Add Item
+                    <p className="hidden md:inline-block">Add Item</p>
                 </NavLink>
             </div>
             <div className="inventory-items drop-shadow">
