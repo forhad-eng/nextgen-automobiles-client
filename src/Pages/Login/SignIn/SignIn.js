@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -10,8 +10,10 @@ import SocialLogin from '../SocialLogin/SocialLogin'
 
 const SignIn = () => {
     const [signInWithEmailAndPassword, user, , singInErr] = useSignInWithEmailAndPassword(auth)
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
     const location = useLocation()
     const navigate = useNavigate()
+
     let error = ''
 
     const from = location.state?.from?.pathname || '/'
@@ -41,6 +43,16 @@ const SignIn = () => {
         console.log(data.accessToken)
     }
 
+    const forgotPasswordHandle = async () => {
+        const email = window.prompt('Enter email')
+        if (!email) {
+            toast.error('Please enter your email', { toastId: 'emailNull' })
+        } else {
+            await sendPasswordResetEmail(email)
+            toast.success(`Password reset email has been sent!`, { toastId: 'passResetSuccess' })
+        }
+    }
+
     return (
         <div className="pt-28 px-4 lg:px-20">
             <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
@@ -51,6 +63,7 @@ const SignIn = () => {
                     <p className="text-2xl text-gray-900 font-[600] mt-10">Sign in</p>
                     <p className="text-gray-900">with your credentials</p>
                     <input
+                        type="text"
                         className="w-full mt-2 py-2 border-b-2 outline-none"
                         placeholder="Enter email"
                         {...register('email', { required: true })}
@@ -77,7 +90,9 @@ const SignIn = () => {
                             </p>
                         </Link>
 
-                        <p className="text-red-600 underline cursor-pointer">Forgot password?</p>
+                        <p onClick={forgotPasswordHandle} className="text-red-600 underline cursor-pointer">
+                            Forgot password?
+                        </p>
                     </div>
                 </form>
                 <img src={signin} style={{ height: '420px', margin: '0 auto' }} className="order-1 md:order-2" alt="" />
