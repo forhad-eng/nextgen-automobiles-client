@@ -23,7 +23,7 @@ const CarsInStock = () => {
     }
 
     return (
-        <div className="grid grid-cols-3 gap-5 mb-10 pt-28 px-20 ">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10 pt-28 md:px-10 lg:px-20 ">
             {cars.map(car => (
                 <CarDetails car={car}>
                     <button onClick={() => buyOneHandle(car)} className="bg-red-600 text-white rounded px-2 py-1">
