@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -14,7 +15,14 @@ const SocialLogin = () => {
     const from = location.state?.from?.pathname || '/'
 
     if (googleUser || gitUser) {
-        navigate(from, { replace: true })
+        const email = googleUser.user.email || gitUser.user.email
+        const url = 'https://fierce-escarpment-98797.herokuapp.com/login'
+        const getAccessToken = async () => {
+            const { data } = await axios.post(url, { email })
+            localStorage.setItem('accessToken', data.accessToken)
+            navigate(from, { replace: true })
+        }
+        getAccessToken()
     }
 
     return (
