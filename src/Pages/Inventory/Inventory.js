@@ -45,7 +45,7 @@ const Inventory = () => {
     }
 
     return (
-        <div className="pt-24 px-20">
+        <div className="mb-20 pt-24 px-20">
             <div className="grid grid-cols-3 gap-10 p-4 shadow rounded-lg text-gray-500 leading-8">
                 <img src={car.image} alt="" />
                 <div>

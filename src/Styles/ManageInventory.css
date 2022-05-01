@@ -4,9 +4,13 @@
     padding-top: 70px;
 }
 .inventory-nav {
-    height: 100vh;
-    padding: 40px;
+    min-height: 100vh;
+    padding: 30px 40px;
 }
+.inventory-items {
+    padding: 30px;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;

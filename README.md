@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# NEXTGEN AUTOMOBILES
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Live Site](https://nextgen-automobiles.web.app)
 
-## Available Scripts
+## Technology Used At Client
 
-In the project directory, you can run:
+-   React Router
+-   React Hook Form
+-   React Firebase Hooks
+-   React Toastify
+-   React Counter
+-   Axios as HTTP Client
+-   Firebase Auth
+-   Tailwind CSS
 
-### `npm start`
+## Technology Used At Server
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   Express.js
+-   MongoDB
+-   JWT
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   This Project includes Firebase Auth for Login system. User Can register by delivering their email, password or simply can sign in/up using Google or GitHub.
+-   On the basis of the Stock, Dealer can update the quantity by tapping Stock Update button. Where Delivered Button reduce stock quantity by one and if new items arrive in warehouse, He/She can simply put that quantity on Restock form and then press the Restock button.
+-   There is a Manage Inventory section which will end up listing name, quantity, price, description of all the available items in the inventory. More than that an Add New Item button can be found which will help dealer to put the new items information into Database. There is also a delete button if necessary individual item can be deleted.
+-   Logged in user can add their preferred item from Cars in Stock page. All added item will be displayed at the My items page and there is an option to delete an individual item and also an option to add new item.
