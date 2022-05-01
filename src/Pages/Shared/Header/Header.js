@@ -1,7 +1,8 @@
 import { signOut } from 'firebase/auth'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { ParamContext } from '../../../App'
 import logo from '../../../Assets/logos/logo.png'
 import { auth } from '../../../Firebase/firebase.init'
 
@@ -12,6 +13,8 @@ const Header = () => {
     const path = location.pathname
     let displayStatus
 
+    const {id} = useContext(ParamContext)
+
     if (
         path === '/' ||
         path === '/all-cars' ||
@@ -19,7 +22,7 @@ const Header = () => {
         path === '/login' ||
         path === '/register' ||
         path === '/blogs' ||
-        path === '/inventory' ||
+        path === `/inventory/${id}` ||
         path === '/manage' ||
         path === `/manage/manage-item` ||
         path === `/manage/add-item`

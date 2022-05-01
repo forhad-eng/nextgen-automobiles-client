@@ -1,3 +1,4 @@
+import { createContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -16,33 +17,39 @@ import NotFound from './Pages/NotFound/NotFound'
 import Footer from './Pages/Shared/Footer/Footer'
 import Header from './Pages/Shared/Header/Header'
 
+export const ParamContext = createContext()
+
 function App() {
+    const [id, setId] = useState('')
+
     return (
         <div>
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/all-cars" element={<CarsInStock />} />
-                <Route path="/my-items" element={<MyItems />} />
-                <Route path="/login" element={<SignIn />} />
-                <Route path="/register" element={<SignUp />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route
-                    path="/inventory/:id"
-                    element={
-                        <RequireAuth>
-                            <Inventory />
-                        </RequireAuth>
-                    }
-                />
-                <Route path="/manage" element={<ManageInventory />}>
-                    <Route index element={<ManageItem />} />
-                    <Route path="manage-item" element={<ManageItem />} />
-                    <Route path="add-item" element={<AddInventory />} />
-                </Route>
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer />
+            <ParamContext.Provider value={{ id, setId }}>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/all-cars" element={<CarsInStock />} />
+                    <Route path="/my-items" element={<MyItems />} />
+                    <Route path="/login" element={<SignIn />} />
+                    <Route path="/register" element={<SignUp />} />
+                    <Route path="/blogs" element={<Blogs />} />
+                    <Route
+                        path="/inventory/:id"
+                        element={
+                            <RequireAuth>
+                                <Inventory />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/manage" element={<ManageInventory />}>
+                        <Route index element={<ManageItem />} />
+                        <Route path="manage-item" element={<ManageItem />} />
+                        <Route path="add-item" element={<AddInventory />} />
+                    </Route>
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+                <Footer />
+            </ParamContext.Provider>
             <ToastContainer />
         </div>
     )

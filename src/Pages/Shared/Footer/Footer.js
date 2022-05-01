@@ -1,7 +1,8 @@
 import { faChevronRight, faEnvelope, faLocationDot, faPhoneFlip } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { ParamContext } from '../../../App'
 import logo from '../../../Assets/logos/logo.png'
 import '../../../Styles/Footer.css'
 
@@ -10,6 +11,8 @@ const Footer = () => {
     const path = location.pathname
     let displayStatus
 
+    const { id } = useContext(ParamContext)
+
     if (
         path === '/' ||
         path === '/all-cars' ||
@@ -17,7 +20,7 @@ const Footer = () => {
         path === '/login' ||
         path === '/register' ||
         path === '/blogs' ||
-        path === '/inventory' ||
+        path === `/inventory/${id}` ||
         path === '/manage' ||
         path === `/manage/manage-item` ||
         path === `/manage/add-item`
@@ -37,7 +40,7 @@ const Footer = () => {
                             <span className="font-bold">nextgen</span> automobiles
                         </p>
                     </div>
-                    <div className="mt-3 ml-4 text-[#c4c3c3] text-sm">
+                    <div className="mt-3 text-[#c4c3c3] text-sm">
                         <p>
                             We provide any kind of car you need. There are always more from us. Keep exploring our web
                             to get the best deal of town!
@@ -191,9 +194,9 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between gap-5 px-20 py-8 border-t-[1px] border-[#ffffff14] text-[#c4c3c3] text-sm">
-                <p>&copy;Copyright 2022 NEXTGEN AUTOMOBILES</p>
-                <div className="flex gap-5">
+            <div className="flex flex-col md:flex-row justify-between gap-5 px-6 md:px-10 lg:px-20 py-8 border-t-[1px] border-[#ffffff14] text-[#c4c3c3] text-sm">
+                <p className="text-center">&copy;Copyright 2022 NEXTGEN AUTOMOBILES</p>
+                <div className="flex justify-center gap-5">
                     <p>Privacy Policy</p>
                     <p>Terms &amp; Conditions</p>
                     <p>Contact Us</p>

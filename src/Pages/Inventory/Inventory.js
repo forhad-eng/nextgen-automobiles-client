@@ -1,14 +1,17 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { ParamContext } from '../../App'
 import useCar from '../../hooks/useCar'
 import '../../Styles/Inventory.css'
 
 const Inventory = () => {
     const { id } = useParams()
+    const { setId } = useContext(ParamContext)
+    setId(id)
     const [car, setCar] = useCar(id)
 
     const deliveredHandle = async () => {
@@ -45,8 +48,8 @@ const Inventory = () => {
     }
 
     return (
-        <div className="mb-20 pt-24 px-20">
-            <div className="grid grid-cols-3 gap-10 p-4 shadow rounded-lg text-gray-500 leading-8">
+        <div className="mb-20 pt-24 px-3 md:px-6 lg:px-20">
+            <div className="grid md:grid-cols-3 gap-4 lg:gap-10 p-4 shadow rounded-lg text-gray-500 leading-8">
                 <img src={car.image} alt="" />
                 <div>
                     <p className="text-3xl text-red-600">{car.name}</p>
@@ -67,8 +70,8 @@ const Inventory = () => {
                 </button>
             </div>
 
-            <div className="mt-6 flex justify-between pl-64">
-                <form onSubmit={reStockHandle} className="restock w-7/12 px-4 pb-5">
+            <div className="mt-6 flex flex-col md:flex-row justify-between md:pl-20 lg:pl-64">
+                <form onSubmit={reStockHandle} className="restock md:w-7/12 px-4 pb-5">
                     <p className="text-3xl text-center py-5">Restock the item</p>
                     <input
                         className="inventory-input block w-4/5 mx-auto py-2 pl-3 rounded-full outline-none"
@@ -83,7 +86,7 @@ const Inventory = () => {
                     />
                 </form>
 
-                <div className="mt-40">
+                <div className="mt-14 md:mt-40 ml-auto">
                     <Link className="bg-red-600 text-white rounded px-2 py-3" to="/manage">
                         <button>
                             Manage Inventories
