@@ -37,8 +37,8 @@ function App() {
                 />
                 <Route path="/manage" element={<ManageInventory />}>
                     <Route index element={<ManageItem />} />
-                    <Route path="manageItem" element={<ManageItem />} />
-                    <Route path="addItem" element={<AddInventory />} />
+                    <Route path="manage-item" element={<ManageItem />} />
+                    <Route path="add-item" element={<AddInventory />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>

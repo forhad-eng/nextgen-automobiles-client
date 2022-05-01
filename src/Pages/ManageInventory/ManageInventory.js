@@ -8,14 +8,14 @@ const ManageInventory = () => {
         <div className="inventory-container">
             <div className="inventory-nav bg-blue-200 leading-9">
                 <NavLink
-                    to="manageItem"
+                    to="manage-item"
                     className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
                 >
                     <FontAwesomeIcon icon={faBarsProgress} className="mr-2" />
                     Manage Inventory
                 </NavLink>
                 <NavLink
-                    to="addItem"
+                    to="add-item"
                     className={({ isActive }) => (isActive ? 'text-blue-600 text-lg block' : 'text-lg block')}
                 >
                     <FontAwesomeIcon icon={faPlus} className="mr-2" />

@@ -18,7 +18,9 @@ const Footer = () => {
         path === '/register' ||
         path === '/blogs' ||
         path === '/inventory' ||
-        path === '/manage'
+        path === '/manage' ||
+        path === `/manage/manage-item` ||
+        path === `/manage/add-item`
     ) {
         displayStatus = true
     } else {

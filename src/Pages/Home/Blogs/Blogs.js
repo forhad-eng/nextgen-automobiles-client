@@ -6,10 +6,11 @@ import sqlNoSql from '../../../Assets/sql-vs-nosql.png'
 
 const Blogs = () => {
     return (
-        <section className="blog py-28 px-4 lg:px-0 bg-[#e5e5e5]">
+        <section className="blog py-20 lg:py-28 px-4 md:px-8 lg:px-0 bg-[#e5e5e5]">
+            <p className="text-2xl md:text-3xl text-center mb-5">𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝐵𝓁𝑜𝑔𝓈</p>
             <div className="lg:w-9/12 mx-auto p-4 bg-white rounded">
                 <div>
-                    <p className="text-3xl">Differences between JavaScript and Node.js</p>
+                    <p className="text-2xl md:text-3xl">Differences between JavaScript and Node.js</p>
                     <p className="text-sm text-gray-500">Posted on 1st May 2022</p>
                     <hr className="my-1" />
                     <img src={jsNode} style={{ margin: '15px auto' }} alt="" />
@@ -18,10 +19,10 @@ const Blogs = () => {
                         <table className="mt-3 border-collapse border-[1px] border-black leading-8 tracking-wide">
                             <thead>
                                 <tr>
-                                    <th className="border-collapse border-[1px] border-black text-lg text-center p-0 py-2">
+                                    <th className="border-collapse border-[1px] border-black md:text-lg text-center p-0 py-2">
                                         JavaScript
                                     </th>
-                                    <th className="border-collapse border-[1px] border-black text-lg text-center p-0 py-2">
+                                    <th className="border-collapse border-[1px] border-black md:text-lg text-center p-0 py-2">
                                         Node
                                     </th>
                                 </tr>
@@ -85,7 +86,7 @@ const Blogs = () => {
                 <hr className="mt-10" />
 
                 <div>
-                    <p className="text-3xl">When one should use Node.Js and when MongoDB</p>
+                    <p className="text-2xl md:text-3xl">When one should use Node.Js and when MongoDB</p>
                     <p className="text-sm text-gray-500">Posted on 1st May 2022</p>
                     <hr className="my-1" />
                     <img src={nodeMongo} style={{ margin: '0 auto' }} alt="" />
@@ -153,7 +154,7 @@ const Blogs = () => {
                 <hr className="mt-10" />
 
                 <div>
-                    <p className="text-3xl">Differences between Sql and NoSql databases</p>
+                    <p className="text-2xl md:text-3xl">Differences between Sql and NoSql databases</p>
                     <p className="text-sm text-gray-500">Posted on 1st May 2022</p>
                     <hr className="my-1" />
                     <img src={sqlNoSql} style={{ width: '100%', height: '400px', margin: '15px auto' }} alt="" />
@@ -162,10 +163,10 @@ const Blogs = () => {
                         <table className="mt-3 border-collapse border-[1px] border-black leading-8 tracking-wide">
                             <thead>
                                 <tr>
-                                    <th className="border-collapse border-[1px] border-black text-lg text-center p-0 py-2">
+                                    <th className="border-collapse border-[1px] border-black md:text-lg text-center p-0 py-2">
                                         SQL
                                     </th>
-                                    <th className="border-collapse border-[1px] border-black text-lg text-center p-0 py-2">
+                                    <th className="border-collapse border-[1px] border-black md:text-lg text-center p-0 py-2">
                                         NoSQL
                                     </th>
                                 </tr>
@@ -219,7 +220,7 @@ const Blogs = () => {
                 <hr className="mt-10" />
 
                 <div className="mb-14">
-                    <p className="text-3xl">Purpose of JWT and the way It Works</p>
+                    <p className="text-2xl md:text-3xl">Purpose of JWT and the way It Works</p>
                     <p className="text-sm text-gray-500">Posted on 1st May 2022</p>
                     <hr className="my-1" />
                     <img src={jwtImage} style={{ width: '100%', height: '400px', margin: '15px auto' }} alt="" />
