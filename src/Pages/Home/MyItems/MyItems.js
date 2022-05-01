@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import axiosPrivate from '../../../apis/axiosPrivate'
 import { auth } from '../../../Firebase/firebase.init'
 
 const MyItems = () => {
@@ -16,7 +17,7 @@ const MyItems = () => {
         if (email) {
             const getItems = async () => {
                 const url = `https://fierce-escarpment-98797.herokuapp.com/sell?email=${email}`
-                const { data } = await axios.get(url)
+                const { data } = await axiosPrivate.get(url)
                 setItems(data)
             }
             getItems()

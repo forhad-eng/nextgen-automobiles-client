@@ -40,7 +40,7 @@ const SignIn = () => {
         await signInWithEmailAndPassword(email, pass)
         const url = 'https://fierce-escarpment-98797.herokuapp.com/login'
         const { data } = await axios.post(url, { email })
-        console.log(data.accessToken)
+        localStorage.setItem('accessToken', data.accessToken)
     }
 
     const forgotPasswordHandle = async () => {
