@@ -2,11 +2,13 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useContext } from 'react'
+import 'react-confirm-alert/src/react-confirm-alert.css'
 import { Link, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { ParamContext } from '../../App'
 import useCar from '../../hooks/useCar'
 import '../../Styles/Inventory.css'
+import ConfirmBox from '../Shared/ConfirmBox/ConfirmBox'
 
 const Inventory = () => {
     const { id } = useParams()
@@ -14,9 +16,8 @@ const Inventory = () => {
     setId(id)
     const [car, setCar] = useCar(id)
 
-    const deliveredHandle = async () => {
-        const proceed = window.confirm('Are you sure you want to deliver?')
-        if (proceed) {
+    const deliveredHandle = () => {
+        const deliverTheCar = async () => {
             let { _id, quantity, ...rest } = car
             quantity -= 1
             const updatedCar = { ...rest, quantity }
@@ -26,12 +27,14 @@ const Inventory = () => {
                 setCar(updatedCar)
             }
         }
+
+        ConfirmBox(deliverTheCar, 'You want to deliver?')
     }
 
-    const reStockHandle = async e => {
+    const reStockHandle = e => {
         e.preventDefault()
-        const proceed = window.confirm('Are you sure you want to Restock?')
-        if (proceed) {
+
+        const restockTheItem = async () => {
             let { _id, quantity, ...rest } = car
             quantity = e.target.quantity.value
             if (!quantity) {
@@ -45,6 +48,8 @@ const Inventory = () => {
                 e.target.reset()
             }
         }
+
+        ConfirmBox(restockTheItem, 'You want to restock?')
     }
 
     return (

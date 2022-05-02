@@ -19,7 +19,7 @@ const CarsInStock = () => {
         const url = 'https://fierce-escarpment-98797.herokuapp.com/sell'
         const { data } = await axios.post(url, soldItem)
         if (data.acknowledged) {
-            toast(`${name} is added to My Items`)
+            toast(`${name} is added to My Items`, { toastId: 'newItemAdded' })
         }
     }
 

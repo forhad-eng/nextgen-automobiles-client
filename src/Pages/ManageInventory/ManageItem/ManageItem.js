@@ -5,14 +5,14 @@ import React from 'react'
 import { toast } from 'react-toastify'
 import useInventory from '../../../hooks/useInventory'
 import '../../../Styles/ManageInventory.css'
+import ConfirmBox from '../../Shared/ConfirmBox/ConfirmBox'
 import Spinner from '../../Shared/Spinner/Spinner'
 
 const ManageItem = () => {
     const [cars, setCars] = useInventory()
 
-    const inventoryDeleteHandle = async _id => {
-        const proceed = window.confirm('Are you sure you want to delete?')
-        if (proceed) {
+    const inventoryDeleteHandle = _id => {
+        const deleteSingleInventory = async () => {
             const url = `https://fierce-escarpment-98797.herokuapp.com/car/${_id}`
             const { data } = await axios.delete(url)
             if (data.acknowledged) {
@@ -21,6 +21,8 @@ const ManageItem = () => {
                 toast.success('Deleted')
             }
         }
+
+        ConfirmBox(deleteSingleInventory, 'You want to delete?')
     }
 
     return (

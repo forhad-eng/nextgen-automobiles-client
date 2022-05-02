@@ -8,6 +8,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axiosPrivate from '../../../apis/axiosPrivate'
 import { auth } from '../../../Firebase/firebase.init'
+import ConfirmBox from '../../Shared/ConfirmBox/ConfirmBox'
 import Spinner from '../../Shared/Spinner/Spinner'
 
 const MyItems = () => {
@@ -36,9 +37,8 @@ const MyItems = () => {
         }
     }, [user])
 
-    const itemDeleteHandle = async _id => {
-        const proceed = window.confirm('Are you sure you want to delete?')
-        if (proceed) {
+    const itemDeleteHandle = _id => {
+        const deleteTheItem = async () => {
             const url = `https://fierce-escarpment-98797.herokuapp.com/sell/${_id}`
             const { data } = await axios.delete(url)
             if (data.acknowledged) {
@@ -47,6 +47,8 @@ const MyItems = () => {
                 toast.success('Deleted', { toastId: 'dltSuccess' })
             }
         }
+
+        ConfirmBox(deleteTheItem, 'You want to delete?')
     }
 
     return (
