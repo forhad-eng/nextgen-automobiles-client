@@ -53,13 +53,17 @@ const Header = () => {
                     <img className="navbar-logo" src={logo} alt="Automobiles" />
                 </Link>
 
-                <div onClick={() => setOpen(!open)} className="block md:hidden w-6 h-6 text-xl">
-                    {open ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faBars} />}
+                <div onClick={() => setOpen(!open)} className="block md:hidden mr-1">
+                    {open ? (
+                        <FontAwesomeIcon icon={faXmark} className="text-2xl" />
+                    ) : (
+                        <FontAwesomeIcon icon={faBars} className="text-2xl" />
+                    )}
                 </div>
 
                 <ul
                     className={`md:flex items-center gap-2 md:gap-5 text-lg md:static absolute left-0 transition-all  duration-75 ${
-                        open ? 'top-14 flex flex-col bg-blue-200 w-full p-3 z-10' : '-top-[800px]'
+                        open ? 'w-full p-3 z-10 top-12 flex flex-col bg-blue-100 text-base' : '-top-[800px]'
                     }`}
                 >
                     <li className="cursor-pointer">

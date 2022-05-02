@@ -9,11 +9,11 @@ const ConfirmBox = (confirmFunction, confirmText) => {
                     <p className="text-2xl md:text-3xl font-[700]">Are you sure?</p>
                     <p className="text-sm mt-3">{confirmText}</p>
                     <div className="flex justify-between gap-2 md:gap-5 mt-5">
-                        <button className="inline-block w-1/2  py-2 border-[1px]" onClick={onClose}>
+                        <button className="inline-block w-1/2 md:w-28 lg:w-40  py-2 border-[1px]" onClick={onClose}>
                             No
                         </button>
                         <button
-                            className="inline-block w-1/2 py-2 border-[1px]"
+                            className="inline-block w-1/2 md:w-28 lg:w-40 py-2 border-[1px]"
                             onClick={() => {
                                 confirmFunction()
                                 onClose()
