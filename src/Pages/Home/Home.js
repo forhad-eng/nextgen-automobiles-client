@@ -28,10 +28,10 @@ const Home = () => {
         <section>
             <img className="lg:h-screen w-full" src={banner1} alt="" />
             <div className="absolute top-[12%] md:top-56 left-[15%] md:left-[20%] lg:left-[33%] uppercase">
-                <p className="-ml-2 md:ml-20 lg:ml-24 text-lg md:text-xl text-red-600">
+                <p className="ml-2 md:ml-20 lg:ml-24 text-sm md:text-xl text-red-600">
                     BMW X3 Sports Activity Vehicle{' '}
                 </p>
-                <p className="text-xl md:text-4xl text-gray-900 font-[600]">Arrives new car everyday</p>
+                <p className="text-lg md:text-4xl text-gray-900 font-[600]">Arrives new car everyday</p>
             </div>
 
             <div className="text-center mt-6 md:mt-8 lg:mt-16">
