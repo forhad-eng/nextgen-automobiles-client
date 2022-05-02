@@ -18,7 +18,7 @@ import NotFound from './Pages/NotFound/NotFound'
 import Footer from './Pages/Shared/Footer/Footer'
 import Header from './Pages/Shared/Header/Header'
 
-export const ParamContext = createContext()
+export const ParamContext = createContext() //inventoryID parameter context for conditional rendering of header/footer
 
 function App() {
     const [id, setId] = useState('')
@@ -34,7 +34,7 @@ function App() {
                     <Route path="/login" element={<SignIn />} />
                     <Route path="/register" element={<SignUp />} />
                     <Route path="/blogs" element={<Blogs />} />
-                    <Route path="/about" element={<AboutUs/>} />
+                    <Route path="/about" element={<AboutUs />} />
                     <Route
                         path="/inventory/:id"
                         element={

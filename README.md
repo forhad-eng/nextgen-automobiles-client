@@ -4,13 +4,14 @@
 
 ## Technology Used At Client
 
+-   Axios
+-   Firebase Auth
 -   React Router
 -   React Hook Form
 -   React Firebase Hooks
 -   React Toastify
 -   React Counter
--   Axios as HTTP Client
--   Firebase Auth
+-   React Confirm Alert
 -   Tailwind CSS
 
 ## Technology Used At Server
