@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
@@ -36,8 +37,8 @@ const SignUp = () => {
         formState: { errors }
     } = useForm()
 
-    const onSubmit = (data, e) => {
-        const { email, pass, conPass } = data
+    const onSubmit = async (formData, e) => {
+        const { email, pass, conPass } = formData
 
         if (pass !== conPass) {
             e.target.reset()
@@ -48,7 +49,10 @@ const SignUp = () => {
             e.target.reset()
             return toast.error('Invalid Email')
         }
-        createUserWithEmailAndPassword(email, pass)
+        await createUserWithEmailAndPassword(email, pass)
+        const url = 'https://fierce-escarpment-98797.herokuapp.com/login'
+        const { data } = await axios.post(url, { email })
+        localStorage.setItem('accessToken', data.accessToken)
         e.target.reset()
     }
 
