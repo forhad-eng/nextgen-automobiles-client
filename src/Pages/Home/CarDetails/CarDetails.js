@@ -4,7 +4,12 @@ const CarDetails = ({ car, children }) => {
     const { name, image, price, quantity, description, supplier } = car
 
     return (
-        <div className="mx-auto" style={{ width: '300px', border: '1px solid #c4c3c3', borderRadius: '10px' }}>
+        <div
+            data-aos="flip-left"
+            data-aos-duration="1500"
+            className="mx-auto"
+            style={{ width: '300px', border: '1px solid #c4c3c3', borderRadius: '10px' }}
+        >
             <img style={{ width: '100%', height: '200px', borderRadius: '10px 10px 0 0' }} src={image} alt="" />
             <div style={{ borderRadius: '0 0 10px 10px' }} className="bg-white text-center">
                 <p className="text-xl text-red-700 pt-2">{name}</p>

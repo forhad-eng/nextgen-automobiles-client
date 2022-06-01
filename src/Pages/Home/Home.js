@@ -27,7 +27,13 @@ const Home = () => {
     return (
         <section>
             <img className="lg:h-screen w-full" src={banner1} alt="" />
-            <div className="absolute top-[12%] md:top-56 left-[15%] md:left-[20%] lg:left-[33%] uppercase">
+            <div
+                data-aos="fade-left"
+                data-aos-anchor="#example-anchor"
+                data-aos-offset="500"
+                data-aos-duration="1000"
+                className="absolute top-[12%] md:top-56 left-[15%] md:left-[20%] lg:left-[33%] uppercase"
+            >
                 <p className="ml-2 md:ml-20 lg:ml-24 text-sm md:text-xl text-red-600">
                     BMW X3 Sports Activity Vehicle{' '}
                 </p>
@@ -86,14 +92,14 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 my-14">
-                <img className="hover:-translate-x-3 hover:ease-in-out duration-500" src={car2} alt="" />
+            <div className="car-entry grid grid-cols-3 gap-2 my-14">
+                <img data-aos="fade-right" data-aos-duration="2000" src={car2} alt="" />
                 <div className="flex flex-col justify-center items-center">
                     <img className="rounded-full" src={assistant} alt="" />
                     <p className="mt-1 text-sm md:text-lg text-center text-gray-500">Have Any Question?</p>
                     <p className="text-lg text-center md:text-3xl text-red-600 font-[600] mt-3">+880 189 0022 5588</p>
                 </div>
-                <img className="hover:translate-x-3 hover:ease-in-out duration-500" src={car1} alt="" />
+                <img data-aos="fade-left" data-aos-duration="2000" src={car1} alt="" />
             </div>
 
             <div className="feature-car">

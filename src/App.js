@@ -1,4 +1,6 @@
-import { createContext, useState } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { createContext, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -22,6 +24,10 @@ export const ParamContext = createContext() //inventoryID parameter context for 
 
 function App() {
     const [id, setId] = useState('')
+
+    useEffect(() => {
+        AOS.init()
+    }, [])
 
     return (
         <div>
