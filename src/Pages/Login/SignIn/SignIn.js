@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React from 'react'
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
@@ -6,12 +5,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import signin from '../../../Assets/signin.jpg'
 import { auth } from '../../../Firebase/firebase.init'
+import useToken from '../../../hooks/useToken'
 import Spinner from '../../Shared/Spinner/Spinner'
 import SocialLogin from '../SocialLogin/SocialLogin'
 
 const SignIn = () => {
     const [signInWithEmailAndPassword, user, loading, singInErr] = useSignInWithEmailAndPassword(auth)
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
+    const [token] = useToken(user)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -32,7 +33,7 @@ const SignIn = () => {
         )
     }
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true })
     }
 
@@ -46,9 +47,6 @@ const SignIn = () => {
     const onSubmit = async formData => {
         const { email, pass } = formData
         await signInWithEmailAndPassword(email, pass)
-        const url = 'https://fierce-escarpment-98797.herokuapp.com/login'
-        const { data } = await axios.post(url, { email })
-        localStorage.setItem('accessToken', data.accessToken)
     }
 
     const forgotPasswordHandle = async () => {

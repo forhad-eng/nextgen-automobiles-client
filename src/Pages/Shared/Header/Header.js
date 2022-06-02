@@ -39,6 +39,7 @@ const Header = () => {
 
     const singOutHandle = () => {
         signOut(auth)
+        localStorage.removeItem('accessToken')
         navigate('/')
     }
 

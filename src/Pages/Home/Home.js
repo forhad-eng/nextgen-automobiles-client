@@ -22,7 +22,15 @@ import Spinner from '../Shared/Spinner/Spinner'
 import CarDetails from './CarDetails/CarDetails'
 
 const Home = () => {
-    const [cars] = useInventory()
+    const [cars, , loading] = useInventory()
+
+    if (loading) {
+        return (
+            <div className="h-screen flex items-center">
+                <Spinner />
+            </div>
+        )
+    }
 
     return (
         <section>
@@ -105,26 +113,15 @@ const Home = () => {
             <div className="feature-car">
                 <p className="text-white text-center pt-12">Our car</p>
                 <p className="text-4xl text-white text-center font-[600] uppercase">inventory</p>
-
-                <>
-                    {cars.length === 0 ? (
-                        <div className="h-screen flex items-center">
-                            <Spinner />
-                        </div>
-                    ) : (
-                        <div className="text-white grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 md:px-14 lg:px-20">
-                            {cars.slice(0, 6).map(car => (
-                                <CarDetails car={car}>
-                                    <Link to={`/inventory/${car._id}`}>
-                                        <button className="bg-red-600 text-white rounded px-2 py-1">
-                                            Stock Update
-                                        </button>
-                                    </Link>
-                                </CarDetails>
-                            ))}
-                        </div>
-                    )}
-                </>
+                <div className="text-white grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 md:px-14 lg:px-20">
+                    {cars.slice(0, 6).map(car => (
+                        <CarDetails car={car}>
+                            <Link to={`/inventory/${car._id}`}>
+                                <button className="bg-red-600 text-white rounded px-2 py-1">Stock Update</button>
+                            </Link>
+                        </CarDetails>
+                    ))}
+                </div>
 
                 <div className="py-10">
                     <Link
