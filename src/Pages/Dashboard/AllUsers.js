@@ -6,7 +6,7 @@ import Spinner from '../Shared/Spinner/Spinner'
 
 const AllUsers = () => {
     const getUsers = async () => {
-        const url = 'http://localhost:5000/user'
+        const url = 'https://fierce-escarpment-98797.herokuapp.com/user'
         const { data } = await axiosPrivate.get(url)
         return data
     }
@@ -18,7 +18,7 @@ const AllUsers = () => {
     }
 
     const makeAdminHandle = async email => {
-        const url = `http://localhost:5000/user/${email}`
+        const url = `https://fierce-escarpment-98797.herokuapp.com/user/${email}`
         const { data } = await axiosPrivate.patch(url)
         if (data.success) {
             refetch()

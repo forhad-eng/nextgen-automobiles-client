@@ -9,7 +9,7 @@ const useToken = user => {
             if (user) {
                 const email = user?.email
                 const name = user?.displayName
-                const { data } = await axios.put('http://localhost:5000/user', { email, name })
+                const { data } = await axios.put('https://fierce-escarpment-98797.herokuapp.com/user', { email, name })
                 if (data) {
                     localStorage.setItem('accessToken', data.accessToken)
                     setToken(data)
