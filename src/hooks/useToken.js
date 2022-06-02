@@ -7,7 +7,6 @@ const useToken = user => {
     useEffect(() => {
         const getToken = async () => {
             if (user) {
-                console.log(user)
                 const email = user?.email
                 const name = user?.displayName
                 const { data } = await axios.put('http://localhost:5000/user', { email, name })

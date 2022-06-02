@@ -14,7 +14,7 @@ const SignUp = () => {
     const [createUserWithEmailAndPassword, eUser, loading, regError] = useCreateUserWithEmailAndPassword(auth, {
         sendEmailVerification: true
     })
-    const [updateProfile] = useUpdateProfile(auth)
+    const [updateProfile, updating] = useUpdateProfile(auth)
     const [token] = useToken(eUser?.user)
     const {
         register,
@@ -24,7 +24,7 @@ const SignUp = () => {
     const navigate = useNavigate()
     let error = ''
 
-    if (loading) {
+    if (loading || updating) {
         return (
             <div className="h-screen flex items-center">
                 <Spinner />

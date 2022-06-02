@@ -4,18 +4,19 @@ import { createContext, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import AddInventory from './Pages/Dashboard/AddInventory'
+import AllUsers from './Pages/Dashboard/AllUsers'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import ManageInventory from './Pages/Dashboard/ManageInventory'
+import MyItems from './Pages/Dashboard/MyItems'
 import AboutUs from './Pages/Home/AboutUs/AboutUs'
 import Blogs from './Pages/Home/Blogs/Blogs'
 import CarsInStock from './Pages/Home/CarsInStock/CarsInStock'
 import Home from './Pages/Home/Home'
-import MyItems from './Pages/Home/MyItems/MyItems'
 import Inventory from './Pages/Inventory/Inventory'
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth'
 import SignIn from './Pages/Login/SignIn/SignIn'
 import SignUp from './Pages/Login/SignUp/SignUp'
-import AddInventory from './Pages/ManageInventory/AddInventory/AddInventory'
-import ManageInventory from './Pages/ManageInventory/ManageInventory'
-import ManageItem from './Pages/ManageInventory/ManageItem/ManageItem'
 import NotFound from './Pages/NotFound/NotFound'
 import Footer from './Pages/Shared/Footer/Footer'
 import Header from './Pages/Shared/Header/Header'
@@ -36,7 +37,13 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/all-cars" element={<CarsInStock />} />
-                    <Route path="/my-items" element={<MyItems />} />
+                    <Route path="/dashboard" element={<Dashboard />}>
+                        <Route index element={<MyItems />} />
+                        <Route path="my-items" element={<MyItems />} />
+                        <Route path="all-users" element={<AllUsers />} />
+                        <Route path="manage-inventory" element={<ManageInventory />} />
+                        <Route path="add-item" element={<AddInventory />} />
+                    </Route>
                     <Route path="/login" element={<SignIn />} />
                     <Route path="/register" element={<SignUp />} />
                     <Route path="/blogs" element={<Blogs />} />
@@ -49,11 +56,7 @@ function App() {
                             </RequireAuth>
                         }
                     />
-                    <Route path="/manage" element={<ManageInventory />}>
-                        <Route index element={<ManageItem />} />
-                        <Route path="manage-item" element={<ManageItem />} />
-                        <Route path="add-item" element={<AddInventory />} />
-                    </Route>
+
                     <Route path="*" element={<NotFound />} />
                 </Routes>
                 <Footer />

@@ -1,15 +1,15 @@
-import { faBarsProgress, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import { signOut } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import axiosPrivate from '../../../apis/axiosPrivate'
-import { auth } from '../../../Firebase/firebase.init'
-import ConfirmBox from '../../Shared/ConfirmBox/ConfirmBox'
-import Spinner from '../../Shared/Spinner/Spinner'
+import axiosPrivate from '../../apis/axiosPrivate'
+import { auth } from '../../Firebase/firebase.init'
+import ConfirmBox from '../Shared/ConfirmBox/ConfirmBox'
+import Spinner from '../Shared/Spinner/Spinner'
 
 const MyItems = () => {
     const [items, setItems] = useState([])
@@ -52,32 +52,16 @@ const MyItems = () => {
     }
 
     return (
-        <div className="inventory-container">
-            <div className="inventory-nav bg-blue-100 leading-9">
-                <NavLink
-                    to="/my-items"
-                    className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}
-                >
-                    <FontAwesomeIcon icon={faBarsProgress} className="mr-2" />
-                    <p className="hidden md:inline-block">Manage My Items</p>
-                </NavLink>
-                <NavLink
-                    to="/all-cars"
-                    className={({ isActive }) => (isActive ? 'text-blue-600 lg:text-lg block' : 'lg:text-lg block')}
-                >
-                    <FontAwesomeIcon icon={faPlus} className="mr-2" />
-                    <p className="hidden md:inline-block">Add Item</p>
-                </NavLink>
-            </div>
-            <div className="inventory-items drop-shadow">
+        <div className="">
+            <div className="drop-shadow">
                 {showSpinner ? (
                     <div className="h-5/6 flex items-center">
                         <Spinner />
                     </div>
                 ) : (
-                    <table>
+                    <table class="table w-full">
                         <thead>
-                            <tr className="bg-blue-700 text-white">
+                            <tr>
                                 <td>Name</td>
                                 <td>Price</td>
                                 <td>Supplier</td>

@@ -10,9 +10,9 @@ import Spinner from '../../Shared/Spinner/Spinner'
 import SocialLogin from '../SocialLogin/SocialLogin'
 
 const SignIn = () => {
-    const [signInWithEmailAndPassword, user, loading, singInErr] = useSignInWithEmailAndPassword(auth)
+    const [signInWithEmailAndPassword, eUser, loading, singInErr] = useSignInWithEmailAndPassword(auth)
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
-    const [token] = useToken(user)
+    const [token] = useToken(eUser?.user)
     const location = useLocation()
     const navigate = useNavigate()
 

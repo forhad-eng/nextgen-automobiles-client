@@ -15,6 +15,8 @@ const SocialLogin = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
+    console.log(googleUser?.user);
+
     const from = location.state?.from?.pathname || '/'
 
     if (token) {

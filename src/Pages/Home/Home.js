@@ -1,13 +1,4 @@
-import {
-    faArrowRight,
-    faCar,
-    faCarBurst,
-    faComments,
-    faDollar,
-    faHeadset,
-    faTrophy,
-    faUser
-} from '@fortawesome/free-solid-svg-icons'
+import { faCar, faCarBurst, faComments, faDollar, faHeadset, faTrophy, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -121,18 +112,6 @@ const Home = () => {
                             </Link>
                         </CarDetails>
                     ))}
-                </div>
-
-                <div className="py-10">
-                    <Link
-                        to="/manage"
-                        className="block w-fit ml-auto mr-5 px-3 py-2 bg-blue-500 text-white rounded outline-none"
-                    >
-                        <button>
-                            Manage Inventories
-                            <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
-                        </button>
-                    </Link>
                 </div>
             </div>
 

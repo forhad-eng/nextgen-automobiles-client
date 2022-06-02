@@ -2,8 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import '../../../Styles/AddNewItem.css'
-
+import '../../Styles/AddNewItem.css'
 const AddInventory = () => {
     const {
         register,

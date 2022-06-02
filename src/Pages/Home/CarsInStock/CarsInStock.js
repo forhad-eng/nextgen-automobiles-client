@@ -37,7 +37,7 @@ const CarsInStock = () => {
                                 onClick={() => buyOneHandle(car)}
                                 className="bg-red-600 text-white rounded px-2 py-1"
                             >
-                                Add Item
+                                Place order
                             </button>
                         </CarDetails>
                     ))}

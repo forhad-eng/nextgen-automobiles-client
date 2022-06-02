@@ -22,7 +22,11 @@ const Header = () => {
     if (
         path === '/' ||
         path === '/all-cars' ||
-        path === '/my-items' ||
+        path === '/dashboard' ||
+        path === '/dashboard/my-items' ||
+        path === '/dashboard/all-users' ||
+        path === '/dashboard/manage-inventory' ||
+        path === '/dashboard/add-item' ||
         path === '/login' ||
         path === '/register' ||
         path === '/blogs' ||
@@ -82,38 +86,37 @@ const Header = () => {
                         </NavLink>
                     </li>
 
-                    {user ? (
-                        ''
-                    ) : (
-                        <li className="cursor-pointer">
-                            <NavLink
-                                to="/about"
-                                className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
-                            >
-                                About
-                            </NavLink>
-                        </li>
-                    )}
                     {user && (
-                        <li className="cursor-pointer">
-                            <NavLink
-                                to="/all-cars"
-                                className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
-                            >
-                                Cars In Stock
-                            </NavLink>
-                        </li>
+                        <>
+                            <li className="cursor-pointer">
+                                <NavLink
+                                    to="/about"
+                                    className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                                >
+                                    About
+                                </NavLink>
+                            </li>
+
+                            <li className="cursor-pointer">
+                                <NavLink
+                                    to="/all-cars"
+                                    className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                                >
+                                    Cars In Stock
+                                </NavLink>
+                            </li>
+
+                            <li className="cursor-pointer">
+                                <NavLink
+                                    to="/dashboard"
+                                    className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
+                                >
+                                    Dashboard
+                                </NavLink>
+                            </li>
+                        </>
                     )}
-                    {user && (
-                        <li className="cursor-pointer">
-                            <NavLink
-                                to="/my-items"
-                                className={({ isActive }) => (isActive ? 'text-red-600' : 'text-gray-800')}
-                            >
-                                My Items
-                            </NavLink>
-                        </li>
-                    )}
+
                     <li className="cursor-pointer">
                         {user ? (
                             <button onClick={singOutHandle} className="bg-[#ff0000] text-white rounded px-3 py-1">
