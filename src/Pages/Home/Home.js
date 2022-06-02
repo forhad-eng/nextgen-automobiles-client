@@ -101,7 +101,7 @@ const Home = () => {
                 <img data-aos="fade-left" data-aos-duration="2000" src={car1} alt="" />
             </div>
 
-            <div className="feature-car">
+            <div className="feature-car pb-20">
                 <p className="text-white text-center pt-12">Our car</p>
                 <p className="text-4xl text-white text-center font-[600] uppercase">inventory</p>
                 <div className="text-white grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 md:px-14 lg:px-20">
@@ -115,7 +115,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 my-14 md:my-24 md:px-24 text-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 my-14 md:my-24 md:px-24 md:py-10 text-center">
                 <div>
                     <FontAwesomeIcon icon={faCar} className="w-6 h-6 text-[#ff0000] bg-gray-100 rounded-full p-3" />
                     <p className="uppercase text-md font-[600] mt-2">vehicles in stock</p>
