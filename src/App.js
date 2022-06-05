@@ -41,6 +41,7 @@ function App() {
                     <Route path="/dashboard" element={<Dashboard />}>
                         <Route index element={<MyItems />} />
                         <Route path="my-items" element={<MyItems />} />
+                        <Route path="all-cars" element={<CarsInStock />} />
                         <Route path="all-users" element={<AllUsers />} />
                         <Route path="manage-orders" element={<ManageOrders />} />
                         <Route path="manage-inventory" element={<ManageInventory />} />

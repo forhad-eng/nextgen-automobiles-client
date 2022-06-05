@@ -1,11 +1,16 @@
 import { faCar, faCarBurst, faComments, faDollar, faHeadset, faTrophy, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import axiosPrivate from '../../apis/axiosPrivate'
 import banner1 from '../../Assets/banner1.jpg'
 import car1 from '../../Assets/car1.png'
 import car2 from '../../Assets/car2.png'
 import assistant from '../../Assets/help-center.jpg'
+import { auth } from '../../Firebase/firebase.init'
+import useAdmin from '../../hooks/useAdmin'
 import useInventory from '../../hooks/useInventory'
 import '../../Styles/Home.css'
 import Counter from '../Shared/Counter/Counter'
@@ -14,6 +19,8 @@ import CarDetails from './CarDetails/CarDetails'
 
 const Home = () => {
     const [cars, , loading] = useInventory()
+    const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user)
 
     if (loading) {
         return (
@@ -21,6 +28,18 @@ const Home = () => {
                 <Spinner />
             </div>
         )
+    }
+
+    const buyOneHandle = async car => {
+        const email = user?.email
+        const { name, price, supplier } = car
+        const soldItem = { email, name, price, supplier }
+
+        const url = 'https://fierce-escarpment-98797.herokuapp.com/sell'
+        const { data } = await axiosPrivate.post(url, soldItem)
+        if (data.acknowledged) {
+            toast(`${name} is added to My Items`, { toastId: 'newItemAdded' })
+        }
     }
 
     return (
@@ -106,9 +125,19 @@ const Home = () => {
                 <div className="text-white grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 md:px-14 lg:px-20">
                     {cars.slice(0, 6).map(car => (
                         <CarDetails car={car}>
-                            <Link to={`/inventory/${car._id}`}>
-                                <button className="bg-red-600 text-white rounded px-2 py-1">Stock Update</button>
-                            </Link>
+                            {admin && (
+                                <Link to={`/inventory/${car._id}`}>
+                                    <button className="bg-red-600 text-white rounded px-2 py-1">Stock Update</button>
+                                </Link>
+                            )}
+                            {!admin && (
+                                <button
+                                    onClick={() => buyOneHandle(car)}
+                                    className="bg-red-600 text-white rounded px-2 py-1"
+                                >
+                                    Place order
+                                </button>
+                            )}
                         </CarDetails>
                     ))}
                 </div>
