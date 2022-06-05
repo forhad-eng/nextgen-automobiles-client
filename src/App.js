@@ -38,7 +38,14 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/all-cars" element={<CarsInStock />} />
-                    <Route path="/dashboard" element={<Dashboard />}>
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <RequireAuth>
+                                <Dashboard />
+                            </RequireAuth>
+                        }
+                    >
                         <Route index element={<MyItems />} />
                         <Route path="my-items" element={<MyItems />} />
                         <Route path="all-cars" element={<CarsInStock />} />
