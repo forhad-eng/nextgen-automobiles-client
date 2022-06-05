@@ -8,6 +8,7 @@ import AddInventory from './Pages/Dashboard/AddInventory'
 import AllUsers from './Pages/Dashboard/AllUsers'
 import Dashboard from './Pages/Dashboard/Dashboard'
 import ManageInventory from './Pages/Dashboard/ManageInventory'
+import ManageOrders from './Pages/Dashboard/ManageOrders'
 import MyItems from './Pages/Dashboard/MyItems'
 import AboutUs from './Pages/Home/AboutUs/AboutUs'
 import Blogs from './Pages/Home/Blogs/Blogs'
@@ -41,6 +42,7 @@ function App() {
                         <Route index element={<MyItems />} />
                         <Route path="my-items" element={<MyItems />} />
                         <Route path="all-users" element={<AllUsers />} />
+                        <Route path="manage-orders" element={<ManageOrders />} />
                         <Route path="manage-inventory" element={<ManageInventory />} />
                         <Route path="add-item" element={<AddInventory />} />
                     </Route>

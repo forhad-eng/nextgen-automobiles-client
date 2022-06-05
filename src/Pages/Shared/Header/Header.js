@@ -25,6 +25,7 @@ const Header = () => {
         path === '/dashboard' ||
         path === '/dashboard/my-items' ||
         path === '/dashboard/all-users' ||
+        path === '/dashboard/manage-orders' ||
         path === '/dashboard/manage-inventory' ||
         path === '/dashboard/add-item' ||
         path === '/login' ||

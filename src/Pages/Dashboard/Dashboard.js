@@ -33,7 +33,7 @@ const Dashboard = () => {
                                 <Link to="all-users">All Users</Link>
                             </li>
                             <li>
-                                <Link to="all-cars">Manage Orders</Link>
+                                <Link to="manage-orders">Manage Orders</Link>
                             </li>
                             <li>
                                 <Link to="manage-inventory">Manage Inventories</Link>

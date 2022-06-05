@@ -102,8 +102,7 @@ const Home = () => {
             </div>
 
             <div className="feature-car pb-20">
-                <p className="text-white text-center pt-12">Our car</p>
-                <p className="text-4xl text-white text-center font-[600] uppercase">inventory</p>
+                <p className="text-3xl text-white text-center font-[600] uppercase pt-12">Featured Cars</p>
                 <div className="text-white grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 md:px-14 lg:px-20">
                     {cars.slice(0, 6).map(car => (
                         <CarDetails car={car}>
