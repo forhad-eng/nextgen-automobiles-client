@@ -31,6 +31,11 @@ const Home = () => {
     }
 
     const buyOneHandle = async car => {
+        if (!user) {
+            toast.error('Please login')
+            return
+        }
+
         const email = user?.email
         const { name, price, supplier } = car
         const soldItem = { email, name, price, supplier }
