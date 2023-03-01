@@ -11,7 +11,7 @@ const useAdmin = () => {
         const getAdmin = async () => {
             if (user) {
                 const email = user.email
-                const url = `https://fierce-escarpment-98797.herokuapp.com/user/admin/${email}`
+                const url = `https://nextgen-automobiles-server.vercel.app/user/admin/${email}`
                 const { data } = await axiosPrivate.get(url)
                 setAdmin(data.admin)
             }

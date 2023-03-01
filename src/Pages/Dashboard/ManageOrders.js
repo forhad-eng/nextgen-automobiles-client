@@ -7,7 +7,7 @@ import Spinner from '../Shared/Spinner/Spinner'
 
 const ManageOrders = () => {
     const getAllOrders = async () => {
-        const url = 'https://fierce-escarpment-98797.herokuapp.com/sell'
+        const url = 'https://nextgen-automobiles-server.vercel.app/sell'
         const { data } = await axiosPrivate(url)
         return data
     }

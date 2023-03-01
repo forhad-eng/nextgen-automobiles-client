@@ -11,7 +11,7 @@ const AddInventory = () => {
     } = useForm()
 
     const onSubmit = async (newItem, e) => {
-        const url = 'https://fierce-escarpment-98797.herokuapp.com/car'
+        const url = 'https://nextgen-automobiles-server.vercel.app/car'
         const { data } = await axios.post(url, newItem)
         if (data.acknowledged) {
             toast.success('Item added')

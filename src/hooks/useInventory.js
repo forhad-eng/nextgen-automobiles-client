@@ -7,7 +7,7 @@ const useInventory = () => {
 
     useEffect(() => {
         const getCarInventory = async () => {
-            const url = 'https://fierce-escarpment-98797.herokuapp.com/car'
+            const url = 'https://nextgen-automobiles-server.vercel.app/car'
             const { data } = await axios.get(url)
             setCars(data)
             setLoading(false)

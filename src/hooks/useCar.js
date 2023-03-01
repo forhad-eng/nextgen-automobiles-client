@@ -6,7 +6,7 @@ const useCar = id => {
 
     useEffect(() => {
         const getSelectedCar = async () => {
-            const url = `https://fierce-escarpment-98797.herokuapp.com/car/${id}`
+            const url = `https://nextgen-automobiles-server.vercel.app/car/${id}`
             const { data } = await axios.get(url)
             setCar(data)
         }

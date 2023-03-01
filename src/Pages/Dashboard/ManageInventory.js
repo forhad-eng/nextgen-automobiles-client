@@ -14,7 +14,7 @@ const ManageInventory = () => {
 
     const inventoryDeleteHandle = _id => {
         const deleteSingleInventory = async () => {
-            const url = `https://fierce-escarpment-98797.herokuapp.com/car/${_id}`
+            const url = `https://nextgen-automobiles-server.vercel.app/car/${_id}`
             const { data } = await axios.delete(url)
             if (data.acknowledged) {
                 const remainingCars = cars.filter(car => car._id !== _id)

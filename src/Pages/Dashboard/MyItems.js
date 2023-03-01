@@ -22,7 +22,7 @@ const MyItems = () => {
         if (email) {
             const getItems = async () => {
                 try {
-                    const url = `https://fierce-escarpment-98797.herokuapp.com/sell?email=${email}`
+                    const url = `https://nextgen-automobiles-server.vercel.app/sell?email=${email}`
                     const { data } = await axiosPrivate.get(url)
                     setItems(data)
                     setShowSpinner(!showSpinner)
@@ -39,7 +39,7 @@ const MyItems = () => {
 
     const itemDeleteHandle = _id => {
         const deleteTheItem = async () => {
-            const url = `https://fierce-escarpment-98797.herokuapp.com/sell/${_id}`
+            const url = `https://nextgen-automobiles-server.vercel.app/sell/${_id}`
             const { data } = await axios.delete(url)
             if (data.acknowledged) {
                 const remainingItems = items.filter(item => item._id !== _id)

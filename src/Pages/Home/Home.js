@@ -40,7 +40,7 @@ const Home = () => {
         const { name, price, supplier } = car
         const soldItem = { email, name, price, supplier }
 
-        const url = 'https://fierce-escarpment-98797.herokuapp.com/sell'
+        const url = 'https://nextgen-automobiles-server.vercel.app/sell'
         const { data } = await axiosPrivate.post(url, soldItem)
         if (data.acknowledged) {
             toast(`${name} is added to My Items`, { toastId: 'newItemAdded' })
